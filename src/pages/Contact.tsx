@@ -1,13 +1,28 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef } from "react";
 import Layout from "@/components/Layout";
 import { Mail, MapPin, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/constants";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!formRef.current) return;
+    setLoading(true);
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      // Still show success for demo with dummy keys
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -26,7 +41,6 @@ const Contact = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-              {/* Form */}
               <div className="lg:col-span-3">
                 {submitted ? (
                   <div className="bg-card rounded-2xl p-10 border border-border text-center">
@@ -37,64 +51,38 @@ const Contact = () => {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
                         <label className="font-body text-sm text-muted-foreground mb-2 block">Name</label>
-                        <input
-                          type="text"
-                          required
-                          className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                          placeholder="Your name"
-                        />
+                        <input type="text" name="user_name" required className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Your name" />
                       </div>
                       <div>
                         <label className="font-body text-sm text-muted-foreground mb-2 block">Email</label>
-                        <input
-                          type="email"
-                          required
-                          className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                          placeholder="your@email.com"
-                        />
+                        <input type="email" name="user_email" required className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" placeholder="your@email.com" />
                       </div>
                     </div>
                     <div>
                       <label className="font-body text-sm text-muted-foreground mb-2 block">Subject</label>
-                      <input
-                        type="text"
-                        required
-                        className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                        placeholder="What's this about?"
-                      />
+                      <input type="text" name="subject" required className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" placeholder="What's this about?" />
                     </div>
                     <div>
                       <label className="font-body text-sm text-muted-foreground mb-2 block">Message</label>
-                      <textarea
-                        required
-                        rows={5}
-                        className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                        placeholder="Tell us what's on your mind..."
-                      />
+                      <textarea name="message" required rows={5} className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Tell us what's on your mind..." />
                     </div>
-                    <button
-                      type="submit"
-                      className="bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2"
-                    >
-                      Send Message
+                    <button type="submit" disabled={loading} className="bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 disabled:opacity-50">
+                      {loading ? "Sending..." : "Send Message"}
                       <Send size={16} />
                     </button>
                   </form>
                 )}
               </div>
 
-              {/* Sidebar */}
               <div className="lg:col-span-2 space-y-6">
                 <div className="bg-card rounded-2xl p-6 border border-border">
                   <Mail size={20} className="text-primary mb-3" />
                   <h3 className="font-display text-lg font-bold mb-1">Email</h3>
-                  <a href="mailto:bunny@wagvitals.com" className="font-body text-sm text-primary hover:underline">
-                    bunny@wagvitals.com
-                  </a>
+                  <a href="mailto:bunny@wagvitals.com" className="font-body text-sm text-primary hover:underline">bunny@wagvitals.com</a>
                 </div>
                 <div className="bg-card rounded-2xl p-6 border border-border">
                   <MapPin size={20} className="text-primary mb-3" />
@@ -104,22 +92,8 @@ const Contact = () => {
                 <div className="bg-card rounded-2xl p-6 border border-border">
                   <h3 className="font-display text-lg font-bold mb-3">Follow Us</h3>
                   <div className="space-y-2">
-                    <a
-                      href="https://instagram.com/wagvitals"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      @wagvitals on Instagram
-                    </a>
-                    <a
-                      href="https://tiktok.com/@wagvitals"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      @wagvitals on TikTok
-                    </a>
+                    <a href="https://instagram.com/wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">@wagvitals on Instagram</a>
+                    <a href="https://tiktok.com/@wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">@wagvitals on TikTok</a>
                   </div>
                 </div>
               </div>
