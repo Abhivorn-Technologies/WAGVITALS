@@ -2,8 +2,7 @@ import Layout from "@/components/Layout";
 import heroDog from "@/assets/hero-dog.jpg";
 import jimmyImg from "@/assets/jimmy-story.jpg";
 import { Heart, Thermometer, Activity, Shield, ArrowRight } from "lucide-react";
-
-const STRIPE_LINK = "https://buy.stripe.com/00w28r3BugcRfDPeiU";
+import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const Index = () => {
   return (

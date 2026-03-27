@@ -1,7 +1,6 @@
 import Layout from "@/components/Layout";
 import { ArrowRight, Shield, Lock, Users, Star, Check } from "lucide-react";
-
-const STRIPE_LINK = "https://buy.stripe.com/00w28r3BugcRfDPeiU";
+import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const Founding50 = () => {
   return (
