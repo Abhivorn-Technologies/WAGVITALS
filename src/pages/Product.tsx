@@ -56,8 +56,8 @@ const Product = () => {
               { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "Non-contact infrared thermometer for real-time body temp" },
               { icon: Activity, label: "Activity", spec: "NRF52840", desc: "Built-in accelerometer for movement, sleep & behavior patterns" },
               { icon: Cpu, label: "Housing", spec: "Zirconia Ceramic", desc: "Medical-grade ceramic — hypoallergenic, durable, and premium" },
-            ].map((s) => (
-              <div key={s.label} className="bg-muted rounded-2xl p-6 border border-border">
+            ].map((s, i) => (
+              <div key={s.label} className="bg-muted rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: `${i * 0.12}s`, animationFillMode: "forwards" }}>
                 <s.icon size={24} className="text-primary mb-4" />
                 <h3 className="font-display text-xl font-bold mb-1">{s.label}</h3>
                 <p className="font-body text-xs text-primary font-semibold mb-2">{s.spec}</p>
@@ -153,7 +153,7 @@ const Product = () => {
           <h2 className="font-display text-4xl font-bold italic mb-16">
             Simple <span className="text-gradient-gold">pricing.</span>
           </h2>
-          <div className="inline-flex flex-col items-center bg-card rounded-2xl p-10 border border-border glow-gold max-w-md w-full">
+          <div className="inline-flex flex-col items-center bg-card rounded-2xl p-10 border border-border glow-gold max-w-md w-full opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
             <h3 className="font-display text-2xl font-bold mb-2">WagVitals Collar</h3>
             <div className="flex items-baseline gap-1 mb-1">
               <span className="font-display text-5xl font-bold text-gradient-gold">$249</span>
