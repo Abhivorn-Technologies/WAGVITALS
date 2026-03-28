@@ -79,17 +79,17 @@ const Contact = () => {
               </div>
 
               <div className="lg:col-span-2 space-y-6">
-                <div className="bg-card rounded-2xl p-6 border border-border">
+                <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
                   <Mail size={20} className="text-primary mb-3" />
                   <h3 className="font-display text-lg font-bold mb-1">Email</h3>
                   <a href="mailto:bunny@wagvitals.com" className="font-body text-sm text-primary hover:underline">bunny@wagvitals.com</a>
                 </div>
-                <div className="bg-card rounded-2xl p-6 border border-border">
+                <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
                   <MapPin size={20} className="text-primary mb-3" />
                   <h3 className="font-display text-lg font-bold mb-1">Location</h3>
                   <p className="font-body text-sm text-muted-foreground">Kent, Ohio</p>
                 </div>
-                <div className="bg-card rounded-2xl p-6 border border-border">
+                <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
                   <h3 className="font-display text-lg font-bold mb-3">Follow Us</h3>
                   <div className="space-y-2">
                     <a href="https://instagram.com/wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">@wagvitals on Instagram</a>

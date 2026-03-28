@@ -102,10 +102,11 @@ const Index = () => {
                 desc: "Movement and sleep pattern analysis via NRF52840 accelerometer. Know when behavior changes.",
                 color: "text-accent",
               },
-            ].map((feature) => (
+            ].map((feature, i) => (
               <div
                 key={feature.title}
-                className="bg-card border border-border rounded-2xl p-8 text-left hover:border-primary/30 transition-colors"
+                className="bg-card border border-border rounded-2xl p-8 text-left hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 0.15}s`, animationFillMode: "forwards" }}
               >
                 <feature.icon size={32} className={`${feature.color} mb-5`} />
                 <h3 className="font-display text-2xl font-bold mb-3">{feature.title}</h3>
@@ -126,7 +127,7 @@ const Index = () => {
           <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
             Be one of the first 50 people to own WagVitals. Lock in founding pricing, get direct access to the team, and shape the future of pet health monitoring.
           </p>
-          <div className="inline-flex flex-col items-center bg-muted rounded-2xl p-10 border border-border glow-gold">
+          <div className="inline-flex flex-col items-center bg-muted rounded-2xl p-10 border border-border glow-gold opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
             <span className="font-display text-6xl font-bold text-gradient-gold">$49</span>
             <span className="font-body text-sm text-muted-foreground mt-2">Reserve today · $200 at delivery</span>
             <a
@@ -153,14 +154,14 @@ const Index = () => {
               <p className="mt-4 font-body text-sm text-primary">— Daniel Baum, Veterinary Advisor</p>
             </div>
             <div className="flex flex-col gap-6">
-              <div className="bg-card rounded-xl p-6 border border-border">
+              <div className="bg-card rounded-xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
                 <div className="flex items-center gap-3 mb-2">
                   <Shield size={20} className="text-primary" />
                   <span className="font-body text-sm font-semibold">NSF I-Corps Validated</span>
                 </div>
                 <p className="font-body text-xs text-muted-foreground">Cohort SP26-004 · Kent State University</p>
               </div>
-              <div className="bg-card rounded-xl p-6 border border-border">
+              <div className="bg-card rounded-xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}>
                 <div className="flex items-center gap-3 mb-2">
                   <Heart size={20} className="text-destructive" />
                   <span className="font-body text-sm font-semibold">Clinically Advised</span>

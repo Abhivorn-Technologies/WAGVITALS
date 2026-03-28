@@ -32,7 +32,7 @@ const Founding50 = () => {
       {/* Pricing Card */}
       <section className="pb-24">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-xl mx-auto bg-card rounded-3xl border border-border p-10 glow-gold">
+          <div className="max-w-xl mx-auto bg-card rounded-3xl border border-border p-10 glow-gold opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
             <div className="text-center mb-8">
               <span className="font-display text-6xl font-bold text-gradient-gold">$49</span>
               <p className="font-body text-sm text-muted-foreground mt-2">Reserve today · $200 at delivery</p>
@@ -84,7 +84,7 @@ const Founding50 = () => {
               { step: "02", title: "We build & test", desc: "Your feedback helps shape the final product. We keep you updated every step of the way." },
               { step: "03", title: "Receive your collar", desc: "Pay the remaining $200 at delivery. Estimated: Early 2027." },
             ].map((item) => (
-              <div key={item.step} className="flex gap-6">
+              <div key={item.step} className="flex gap-6 opacity-0 animate-fade-in-up" style={{ animationDelay: `${Number(item.step) * 0.15}s`, animationFillMode: "forwards" }}>
                 <span className="font-display text-3xl font-bold text-primary shrink-0">{item.step}</span>
                 <div>
                   <h3 className="font-display text-xl font-bold mb-1">{item.title}</h3>

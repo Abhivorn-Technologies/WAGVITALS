@@ -80,10 +80,11 @@ const About = () => {
                 desc: "Clinical advisor ensuring WagVitals data is medically meaningful and actionable.",
                 icon: Shield,
               },
-            ].map((member) => (
+            ].map((member, i) => (
               <div
                 key={member.name}
-                className="bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-colors"
+                className="bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 0.15}s`, animationFillMode: "forwards" }}
               >
                 <member.icon size={28} className="text-primary mb-4" />
                 <h3 className="font-display text-2xl font-bold">{member.name}</h3>
