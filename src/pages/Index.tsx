@@ -98,7 +98,7 @@ const Index = () => {
             ].map((dog, i) => (
               <ScrollAnimate key={dog.breed} animation="fade-in-up" delay={i * 0.15}>
                 <div className="rounded-2xl overflow-hidden border border-border hover:-translate-y-1 transition-transform duration-300">
-                  <img src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-80 object-cover" />
+                  <SmoothImage src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-80 object-cover" wrapperClassName="h-80" />
                   <div className="p-4 bg-card">
                     <p className="font-body text-sm text-muted-foreground">{dog.breed}</p>
                   </div>
