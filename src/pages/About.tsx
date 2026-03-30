@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import jimmyImg from "@/assets/jimmy-story.jpg";
-import { Shield, Users, Heart } from "lucide-react";
+import { Shield, Users, Heart, ArrowRight } from "lucide-react";
+import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const About = () => {
   return (
@@ -48,6 +49,14 @@ const About = () => {
               <p className="mt-6 font-body text-sm text-primary font-semibold">
                 — Bunny (Bhuvaneshwar Reddy Kosna), Founder & CEO
               </p>
+              <a
+                href={STRIPE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 font-body text-sm text-primary hover:underline transition-colors"
+              >
+                Reserve your founding spot →
+              </a>
             </div>
           </div>
         </div>
@@ -96,8 +105,38 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission / NSF */}
+      {/* Milestone Timeline */}
       <section className="py-24 bg-card">
+        <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
+          <h2 className="font-display text-3xl font-bold italic mb-4">Where we are <span className="text-gradient-gold">now.</span></h2>
+          <p className="font-body text-muted-foreground mb-12">
+            Working prototype expected in 4–8 weeks · Delivery: Early 2027
+          </p>
+          <div className="flex items-center justify-between relative">
+            <div className="absolute top-4 left-0 right-0 h-0.5 bg-border" />
+            {[
+              { label: "Waitlist Open", active: true, current: false },
+              { label: "Prototype", active: true, current: true },
+              { label: "Beta Testing", active: false, current: false },
+              { label: "Kickstarter", active: false, current: false },
+              { label: "Delivery", active: false, current: false },
+            ].map((step) => (
+              <div key={step.label} className="relative flex flex-col items-center z-10">
+                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${step.current ? "bg-destructive border-destructive" : step.active ? "bg-primary border-primary" : "bg-muted border-border"}`}>
+                  {step.current && <span className="text-xs font-bold text-destructive-foreground">●</span>}
+                </div>
+                <span className={`mt-2 font-body text-xs text-center max-w-[80px] ${step.current ? "text-destructive font-semibold" : step.active ? "text-primary" : "text-muted-foreground"}`}>
+                  {step.label}
+                </span>
+                {step.current && <span className="text-[10px] text-destructive font-semibold mt-0.5">You Are Here</span>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission / NSF */}
+      <section className="py-24">
         <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
           <Shield size={40} className="text-primary mx-auto mb-6" />
           <h2 className="font-display text-3xl font-bold italic mb-4">NSF I-Corps Validated</h2>
@@ -105,6 +144,15 @@ const About = () => {
           <p className="font-body text-sm text-muted-foreground mt-6">
             WagVitals was selected for the National Science Foundation's Innovation Corps program, validating our technology and market approach through rigorous customer discovery.
           </p>
+          <a
+            href={STRIPE_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity"
+          >
+            Reserve Your Founding Spot — $49
+            <ArrowRight size={18} />
+          </a>
         </div>
       </section>
     </Layout>

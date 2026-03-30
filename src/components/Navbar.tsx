@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-
-const STRIPE_LINK = "https://buy.stripe.com/00w28r3BugcRfDPeiU";
+import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
+import wagvitalsLogo from "@/assets/wagvitals-logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -19,8 +19,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        <Link to="/" className="font-display text-2xl font-bold tracking-wide">
-          Wag<span className="text-gradient-gold">Vitals</span>
+        <Link to="/" className="flex items-center gap-2">
+          <img src={wagvitalsLogo} alt="WagVitals" className="h-10" />
         </Link>
 
         {/* Desktop */}
