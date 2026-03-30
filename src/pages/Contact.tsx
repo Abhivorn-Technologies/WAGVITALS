@@ -1,5 +1,6 @@
 import { useState, FormEvent, useRef } from "react";
 import Layout from "@/components/Layout";
+import ScrollAnimate from "@/components/ScrollAnimate";
 import { Mail, MapPin, Send, Linkedin } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/constants";
@@ -30,24 +31,28 @@ const Contact = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Get in Touch</p>
-              <h1 className="font-display text-5xl sm:text-6xl font-bold italic mb-6">
-                Let's <span className="text-gradient-gold">talk.</span>
-              </h1>
-              <p className="font-body text-lg text-muted-foreground max-w-lg mx-auto">
-                Have questions about WagVitals? Want to learn more about the Founding 50? We'd love to hear from you.
-              </p>
+              <ScrollAnimate animation="fade-in">
+                <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Get in Touch</p>
+              </ScrollAnimate>
+              <ScrollAnimate animation="fade-in-up" delay={0.1}>
+                <h1 className="font-display text-5xl sm:text-6xl font-bold italic mb-6">
+                  Let's <span className="text-gradient-gold">talk.</span>
+                </h1>
+              </ScrollAnimate>
+              <ScrollAnimate animation="fade-in-up" delay={0.2}>
+                <p className="font-body text-lg text-muted-foreground max-w-lg mx-auto">
+                  Have questions about WagVitals? Want to learn more about the Founding 50? We'd love to hear from you.
+                </p>
+              </ScrollAnimate>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-              <div className="lg:col-span-3">
+              <ScrollAnimate animation="fade-in-up" delay={0.1} className="lg:col-span-3">
                 {submitted ? (
                   <div className="bg-card rounded-2xl p-10 border border-border text-center">
                     <Send size={32} className="text-primary mx-auto mb-4" />
                     <h3 className="font-display text-2xl font-bold mb-2">Message Sent!</h3>
-                    <p className="font-body text-sm text-muted-foreground">
-                      Thank you for reaching out. We'll get back to you within 24 hours.
-                    </p>
+                    <p className="font-body text-sm text-muted-foreground">Thank you for reaching out. We'll get back to you within 24 hours.</p>
                   </div>
                 ) : (
                   <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -70,33 +75,38 @@ const Contact = () => {
                       <textarea name="message" required rows={5} className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Tell us what's on your mind..." />
                     </div>
                     <button type="submit" disabled={loading} className="bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 disabled:opacity-50">
-                      {loading ? "Sending..." : "Send Message"}
-                      <Send size={16} />
+                      {loading ? "Sending..." : "Send Message"} <Send size={16} />
                     </button>
                   </form>
                 )}
-              </div>
+              </ScrollAnimate>
 
               <div className="lg:col-span-2 space-y-6">
-                <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
-                  <Mail size={20} className="text-primary mb-3" />
-                  <h3 className="font-display text-lg font-bold mb-1">Email</h3>
-                  <a href="mailto:bunny@wagvitals.com" className="font-body text-sm text-primary hover:underline">bunny@wagvitals.com</a>
-                  <p className="font-body text-xs text-muted-foreground mt-2 italic">For investors & press: bunny@wagvitals.com</p>
-                </div>
-                <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-                  <MapPin size={20} className="text-primary mb-3" />
-                  <h3 className="font-display text-lg font-bold mb-1">Location</h3>
-                  <p className="font-body text-sm text-muted-foreground">Kent, Ohio</p>
-                </div>
-                <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
-                  <Linkedin size={20} className="text-primary mb-3" />
-                  <h3 className="font-display text-lg font-bold mb-3">Connect</h3>
-                  <div className="space-y-2">
-                    <a href="https://linkedin.com/company/wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">WagVitals on LinkedIn</a>
-                    <a href="https://linkedin.com/in/bunny-wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">Bunny on LinkedIn</a>
+                <ScrollAnimate animation="slide-in-right" delay={0.15}>
+                  <div className="bg-card rounded-2xl p-6 border border-border hover:-translate-y-1 transition-transform duration-300">
+                    <Mail size={20} className="text-primary mb-3" />
+                    <h3 className="font-display text-lg font-bold mb-1">Email</h3>
+                    <a href="mailto:bunny@wagvitals.com" className="font-body text-sm text-primary hover:underline">bunny@wagvitals.com</a>
+                    <p className="font-body text-xs text-muted-foreground mt-2 italic">For investors & press: bunny@wagvitals.com</p>
                   </div>
-                </div>
+                </ScrollAnimate>
+                <ScrollAnimate animation="slide-in-right" delay={0.25}>
+                  <div className="bg-card rounded-2xl p-6 border border-border hover:-translate-y-1 transition-transform duration-300">
+                    <MapPin size={20} className="text-primary mb-3" />
+                    <h3 className="font-display text-lg font-bold mb-1">Location</h3>
+                    <p className="font-body text-sm text-muted-foreground">Kent, Ohio</p>
+                  </div>
+                </ScrollAnimate>
+                <ScrollAnimate animation="slide-in-right" delay={0.35}>
+                  <div className="bg-card rounded-2xl p-6 border border-border hover:-translate-y-1 transition-transform duration-300">
+                    <Linkedin size={20} className="text-primary mb-3" />
+                    <h3 className="font-display text-lg font-bold mb-3">Connect</h3>
+                    <div className="space-y-2">
+                      <a href="https://linkedin.com/company/wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">WagVitals on LinkedIn</a>
+                      <a href="https://linkedin.com/in/bunny-wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">Bunny on LinkedIn</a>
+                    </div>
+                  </div>
+                </ScrollAnimate>
               </div>
             </div>
           </div>
