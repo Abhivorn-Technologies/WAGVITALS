@@ -2,10 +2,9 @@ import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
 import SmoothImage from "@/components/SmoothImage";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
-import foundersLogo from "@/assets/founders-logo.png";
 import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
 import uarfLogo from "@/assets/uarf-logo.png";
-import { Shield, Users, Heart, ArrowRight } from "lucide-react";
+import { Users, Heart, ArrowRight, Shield } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const About = () => {
@@ -87,7 +86,6 @@ const About = () => {
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.1}>
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-              <img src={foundersLogo} alt="Jason Calacanis Founder University" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
             </div>
@@ -109,8 +107,8 @@ const About = () => {
               <div className="absolute top-4 left-0 right-0 h-0.5 bg-border" />
               {[
                 { label: "Waitlist Open", active: true, current: false },
-                { label: "Prototype", active: true, current: true },
-                { label: "Beta Testing", active: false, current: false },
+                { label: "Prototype", active: true, current: false },
+                { label: "Beta Testing", active: true, current: true },
                 { label: "Kickstarter", active: false, current: false },
                 { label: "Delivery", active: false, current: false },
               ].map((step) => (
@@ -128,8 +126,8 @@ const About = () => {
               <div className="absolute top-0 bottom-0 left-[15px] w-0.5 bg-border" />
               {[
                 { label: "Waitlist Open", active: true, current: false },
-                { label: "Prototype", active: true, current: true },
-                { label: "Beta Testing", active: false, current: false },
+                { label: "Prototype", active: true, current: false },
+                { label: "Beta Testing", active: true, current: true },
                 { label: "Kickstarter", active: false, current: false },
                 { label: "Delivery", active: false, current: false },
               ].map((step) => (
@@ -148,17 +146,15 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission / NSF */}
+      {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
           <ScrollAnimate animation="scale-in">
-            <Shield size={40} className="text-primary mx-auto mb-6" />
-            <h2 className="font-display text-3xl font-bold italic mb-4">NSF I-Corps Validated</h2>
-            <p className="font-body text-muted-foreground mb-2">Cohort SP26-004 · Kent State University</p>
-            <p className="font-body text-sm text-muted-foreground mt-6">
-              WagVitals was selected for the National Science Foundation's Innovation Corps program, validating our technology and market approach through rigorous customer discovery.
+            <h2 className="font-display text-3xl font-bold italic mb-4">Join the <span className="text-gradient-gold">mission.</span></h2>
+            <p className="font-body text-muted-foreground mb-6">
+              200+ dog owners are already on the waitlist. Be part of the movement to bring proactive health monitoring to every dog.
             </p>
-            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity">
+            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity">
               Reserve Your Founding Spot — $49 <ArrowRight size={18} />
             </a>
           </ScrollAnimate>

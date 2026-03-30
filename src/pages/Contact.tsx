@@ -1,7 +1,7 @@
 import { useState, FormEvent, useRef } from "react";
 import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
-import { Mail, MapPin, Send, Linkedin } from "lucide-react";
+import { Mail, MapPin, Send, Linkedin, Instagram } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/constants";
 
@@ -102,8 +102,9 @@ const Contact = () => {
                     <Linkedin size={20} className="text-primary mb-3" />
                     <h3 className="font-display text-lg font-bold mb-3">Connect</h3>
                     <div className="space-y-2">
-                      <a href="https://linkedin.com/company/wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">WagVitals on LinkedIn</a>
-                      <a href="https://linkedin.com/in/bunny-wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">Bunny on LinkedIn</a>
+                      <a href="https://www.linkedin.com/in/bhuvaneshwarreddy-kosna-644807190/" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">LinkedIn</a>
+                      <a href="https://www.instagram.com/wagvitals?igsh=MWl4cGJ4NmtlbjcyZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">Instagram</a>
+                      <a href="https://x.com/wagvitals?s=21" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">X (Twitter)</a>
                     </div>
                   </div>
                 </ScrollAnimate>

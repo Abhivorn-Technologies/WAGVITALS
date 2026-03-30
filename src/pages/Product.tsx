@@ -4,7 +4,7 @@ import SmoothImage from "@/components/SmoothImage";
 import heroDog from "@/assets/hero-dog.jpg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
-import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain, Video } from "lucide-react";
+import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const Product = () => {
@@ -77,12 +77,11 @@ const Product = () => {
           </ScrollAnimate>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Heart, label: "Heart Rate", spec: "MAX30101", desc: "Catch irregular rhythms before they become emergencies — continuous optical pulse monitoring." },
-              { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "Fever alerts before your dog shows visible signs — non-contact infrared, industry-first at consumer price.", badge: "Industry First" },
-              { icon: Activity, label: "Activity", spec: "NRF52840", desc: "See when behavior changes — rest, play, stress, sleep patterns via 6-axis accelerometer." },
+              { icon: Heart, label: "Heart Rate", spec: "MAX30101", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts." },
+              { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", badge: "Industry First" },
+              { icon: Activity, label: "Activity & Rest", spec: "NRF52840", desc: "Know the difference between a lazy afternoon and something wrong. Track rest, play, stress, and sleep patterns over time." },
               { icon: Cpu, label: "Housing", spec: "Zirconia Ceramic", desc: "Medical-grade ceramic — hypoallergenic, durable, and premium feel." },
-              { icon: Brain, label: "AI Guidance", spec: "Vitals+ App", desc: "Plain-English alerts and recommendations based on your dog's live biometric trends." },
-              { icon: Video, label: "$25 Vet Calls", spec: "On-demand", desc: "20-min video call with a licensed vet who sees your dog's actual vitals in real time." },
+              { icon: Brain, label: "AI Health Guidance", spec: "Vitals+ App", desc: "Your dog's vitals, translated. Plain-English alerts tell you what the numbers mean and when to call your vet — before it becomes an emergency." },
             ].map((s, i) => (
               <ScrollAnimate key={s.label} animation="fade-in-up" delay={i * 0.1}>
                 <div className="bg-muted rounded-2xl p-6 border border-border hover:-translate-y-1 transition-transform duration-300 h-full">
@@ -115,7 +114,7 @@ const Product = () => {
                 <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Companion App</p>
                 <h2 className="font-display text-4xl font-bold italic mb-6">Your dog's health,<br /><span className="text-gradient-gold">at a glance.</span></h2>
                 <ul className="space-y-4">
-                  {["Real-time heart rate & temperature dashboard", "Activity tracking with daily/weekly trends", "AI health guidance — plain-English alerts", "Smart alerts when vitals deviate from baseline", "Share health reports with your vet instantly", "$25 on-demand vet video calls", "Track multiple dogs on one account"].map((item) => (
+                  {["Real-time heart rate & temperature dashboard", "Activity tracking with daily/weekly trends", "AI health guidance — plain-English alerts", "Smart alerts when vitals deviate from baseline", "Share health reports with your vet instantly", "Track multiple dogs on one account"].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-sm text-muted-foreground"><Check size={16} className="text-primary mt-0.5 shrink-0" />{item}</li>
                   ))}
                 </ul>
@@ -151,7 +150,6 @@ const Product = () => {
                     ["Body Temperature", true, false, false, true],
                     ["Activity Tracking", true, true, true, true],
                     ["AI Health Guidance", true, false, false, false],
-                    ["$25 Vet Calls", true, false, false, false],
                     ["GPS Location", false, false, true, false],
                     ["Real-time Alerts", true, false, false, true],
                     ["Ceramic Housing", true, false, false, false],
@@ -204,7 +202,7 @@ const Product = () => {
                 </div>
                 <p className="font-body text-sm text-muted-foreground mt-2">Cancel anytime</p>
                 <ul className="space-y-3 text-left mt-6 mb-8">
-                  {["AI health guidance & alerts", "$25 on-demand vet video calls", "30-day trend analytics", "Vet-shareable health reports"].map((item) => (
+                  {["AI health guidance & alerts", "30-day trend analytics", "Vet-shareable health reports", "Track multiple dogs"].map((item) => (
                     <li key={item} className="flex items-center gap-3 font-body text-sm text-muted-foreground"><Check size={14} className="text-primary shrink-0" />{item}</li>
                   ))}
                 </ul>

@@ -5,10 +5,9 @@ import SmoothImage from "@/components/SmoothImage";
 import heroDog from "@/assets/hero-dog.jpg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
-import foundersLogo from "@/assets/founders-logo.png";
 import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
 import uarfLogo from "@/assets/uarf-logo.png";
-import { Heart, Thermometer, Activity, Shield, ArrowRight, Brain, Video, CheckCircle } from "lucide-react";
+import { Heart, Thermometer, Activity, Shield, ArrowRight, Brain, CheckCircle } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const Index = () => {
@@ -44,7 +43,7 @@ const Index = () => {
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in" delay={0.25}>
             <p className="font-body text-sm text-muted-foreground mb-8">
-              100+ dog owners on the waitlist · NSF I-Corps SP26-004 · Jason Calacanis Founder University
+              200+ dog owners on the waitlist
             </p>
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.3}>
@@ -130,11 +129,10 @@ const Index = () => {
           </ScrollAnimate>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Heart, title: "Heart Rate", desc: "Catch irregular rhythms before they become emergencies. Continuous optical monitoring so you know instantly if something changes.", spec: "MAX30101 optical sensor", color: "text-destructive" },
-              { icon: Thermometer, title: "Body Temperature", desc: "Fever alerts before your dog shows visible signs. Non-invasive infrared tracking catches spikes early — when action still matters.", spec: "MLX90614 non-contact IR", color: "text-primary", badge: "Industry First — No Competitor Has This" },
-              { icon: Activity, title: "Activity & Rest", desc: "See when behavior changes — rest, play, stress, sleep. Know the difference between a lazy day and a sign something is wrong.", spec: "NRF52840 6-axis IMU", color: "text-accent" },
-              { icon: Brain, title: "AI Health Guidance", desc: "Plain-English alerts and recommendations based on your dog's live biometric trends. Know what the numbers mean — before you call the vet.", spec: "Vitals+ App feature", color: "text-primary" },
-              { icon: Video, title: "$25 Vet Calls", desc: "20-minute on-demand video call with a licensed vet who sees your dog's actual vitals in real time. Expert care when you need it.", spec: "On-demand via Vitals+ App", color: "text-destructive" },
+              { icon: Heart, title: "Heart Rate", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts.", spec: "MAX30101 optical sensor", color: "text-destructive" },
+              { icon: Thermometer, title: "Body Temperature", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", spec: "MLX90614 non-contact IR", color: "text-primary", badge: "Industry First — No Competitor Has This" },
+              { icon: Activity, title: "Activity & Rest", desc: "Know the difference between a lazy afternoon and something wrong. Track rest, play, stress, and sleep patterns over time.", spec: "NRF52840 6-axis IMU", color: "text-accent" },
+              { icon: Brain, title: "AI Health Guidance", desc: "Your dog's vitals, translated. Plain-English alerts tell you what the numbers mean and when to call your vet — before it becomes an emergency.", spec: "Vitals+ App feature", color: "text-primary" },
             ].map((feature, i) => (
               <ScrollAnimate key={feature.title} animation="fade-in-up" delay={i * 0.1}>
                 <div className="bg-card border border-border rounded-2xl p-8 text-left hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full">
@@ -214,7 +212,7 @@ const Index = () => {
                 <span className="font-display text-5xl font-bold text-gradient-gold">$15</span>
                 <span className="font-body text-lg text-muted-foreground">/mo</span>
                 <p className="font-body text-sm text-muted-foreground mt-2">Cancel anytime</p>
-                <p className="font-body text-xs text-accent mt-1">AI guidance · $25 vet calls · trends</p>
+                <p className="font-body text-xs text-accent mt-1">AI guidance · health trends · reports</p>
               </div>
             </ScrollAnimate>
           </div>
@@ -237,11 +235,11 @@ const Index = () => {
           <ScrollAnimate animation="scale-in" delay={0.1}>
             <div className="max-w-md mx-auto mb-10">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-body text-sm text-muted-foreground">42 of 50 spots remaining</span>
-                <span className="font-body text-sm text-primary font-semibold">16% claimed</span>
+               <span className="font-body text-sm text-muted-foreground">All 50 spots claimed!</span>
+                <span className="font-body text-sm text-primary font-semibold">100% filled</span>
               </div>
               <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                <div className="bg-gradient-gold h-full rounded-full transition-all duration-1000" style={{ width: "16%" }} />
+                <div className="bg-gradient-gold h-full rounded-full transition-all duration-1000" style={{ width: "100%" }} />
               </div>
             </div>
           </ScrollAnimate>
@@ -260,7 +258,6 @@ const Index = () => {
           <ScrollAnimate animation="fade-in" delay={0.3}>
             <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
               {[
-                { icon: Shield, text: "NSF I-Corps Validated" },
                 { icon: CheckCircle, text: "Clinically Advised — Daniel Baum" },
                 { icon: Shield, text: "Kent State University" },
               ].map((badge) => (
@@ -309,7 +306,6 @@ const Index = () => {
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.1}>
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-              <img src={foundersLogo} alt="Jason Calacanis Founder University" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
             </div>
@@ -329,7 +325,6 @@ const Index = () => {
             </ScrollAnimate>
             <div className="flex flex-col gap-6">
               {[
-                { icon: Shield, title: "NSF I-Corps Validated", desc: "Cohort SP26-004 · Kent State University" },
                 { icon: Heart, title: "Clinically Advised", desc: "Daniel Baum, Veterinary Advisor", iconColor: "text-destructive" },
                 { icon: Shield, title: "Working prototype in 4–8 weeks", desc: "FCC certification next · Kickstarter launch · Early 2027 delivery" },
               ].map((item, i) => (
