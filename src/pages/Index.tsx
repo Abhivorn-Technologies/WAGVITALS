@@ -236,7 +236,7 @@ const Index = () => {
           <ScrollAnimate animation="scale-in" delay={0.1}>
             <div className="max-w-md mx-auto mb-10">
               <div className="flex items-center justify-between mb-2">
-               <span className="font-body text-sm text-muted-foreground">All 50 spots claimed!</span>
+               <span className="font-body text-sm text-muted-foreground">Filling fast</span>
                 <span className="font-body text-sm text-primary font-semibold">75%</span>
               </div>
               <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
@@ -328,7 +328,7 @@ const Index = () => {
             <div className="flex flex-col gap-6">
               {[
                 { icon: Heart, title: "Clinically Advised", desc: "Daniel Baum, Veterinary Advisor", iconColor: "text-destructive" },
-                { icon: Shield, title: "Working prototype in 4–8 weeks", desc: "FCC certification next · Kickstarter launch · Early 2027 delivery" },
+                { icon: Shield, title: "Working on Beta", desc: "FCC certification next · Kickstarter launch · Early 2027 delivery" },
               ].map((item, i) => (
                 <ScrollAnimate key={item.title} animation="slide-in-right" delay={i * 0.15}>
                   <div className="bg-muted rounded-xl p-6 border border-border hover:-translate-y-1 transition-transform duration-300">
