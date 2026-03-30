@@ -1,5 +1,8 @@
 import Layout from "@/components/Layout";
-import jimmyImg from "@/assets/jimmy-story.jpg";
+import dogPitbull from "@/assets/dog-pitbull.jpg";
+import foundersLogo from "@/assets/founders-logo.png";
+import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
+import uarfLogo from "@/assets/uarf-logo.png";
 import { Shield, Users, Heart, ArrowRight } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
@@ -24,8 +27,8 @@ const About = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <img
-              src={jimmyImg}
-              alt="Jimmy, the dog who inspired WagVitals"
+              src={dogPitbull}
+              alt="Pitbull wearing WagVitals collar — the inspiration behind the brand"
               loading="lazy"
               width={800}
               height={1024}
@@ -101,6 +104,18 @@ const About = () => {
                 <p className="font-body text-sm text-muted-foreground">{member.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Logos */}
+      <section className="py-16 bg-muted border-y border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-8 text-center">Backed & Validated By</p>
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            <img src={foundersLogo} alt="Jason Calacanis Founder University" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </section>

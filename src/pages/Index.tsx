@@ -1,7 +1,11 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import heroDog from "@/assets/hero-dog.jpg";
-import jimmyImg from "@/assets/jimmy-story.jpg";
+import dogPitbull from "@/assets/dog-pitbull.jpg";
+import dogGolden from "@/assets/dog-golden.jpg";
+import foundersLogo from "@/assets/founders-logo.png";
+import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
+import uarfLogo from "@/assets/uarf-logo.png";
 import { Heart, Thermometer, Activity, Shield, ArrowRight, Brain, Video, CheckCircle } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
@@ -80,38 +84,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Jimmy's Story */}
+      {/* Product Gallery */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">The Story Behind WagVitals</p>
-              <h2 className="font-display text-4xl sm:text-5xl font-bold mb-6 italic">
-                Why this <span className="text-gradient-gold">matters.</span>
-              </h2>
-              <blockquote className="font-body text-lg text-muted-foreground leading-relaxed border-l-2 border-primary pl-6">
-                "I lost my dog Jimmy without warning. No signs. No time to act. I built WagVitals so every pet owner has the data to act early — before it's too late."
-              </blockquote>
-              <p className="mt-4 font-body text-sm text-blush">— Bunny, Founder & CEO</p>
-              <a
-                href={STRIPE_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 font-body text-sm text-primary hover:underline transition-colors"
-              >
-                Reserve your founding spot →
-              </a>
-            </div>
-            <div className="order-1 lg:order-2">
-              <img
-                src={jimmyImg}
-                alt="Jimmy, the inspiration behind WagVitals"
-                loading="lazy"
-                width={800}
-                height={1024}
-                className="rounded-2xl w-full max-w-md mx-auto glow-gold"
-              />
-            </div>
+          <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3 text-center">Real Dogs. Real Collar.</p>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-12 italic text-center">
+            Built for <span className="text-gradient-gold">every breed.</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { img: heroDog, alt: "Doberman wearing WagVitals smart collar with precision module data feed", breed: "Doberman" },
+              { img: dogPitbull, alt: "Pitbull wearing WagVitals collar showing real-time health monitoring", breed: "Pitbull" },
+              { img: dogGolden, alt: "Golden Retriever wearing WagVitals collar with biometric tracking", breed: "Golden Retriever" },
+            ].map((dog, i) => (
+              <div key={dog.breed} className="rounded-2xl overflow-hidden border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: `${i * 0.15}s`, animationFillMode: "forwards" }}>
+                <img src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-80 object-cover" />
+                <div className="p-4 bg-card">
+                  <p className="font-body text-sm text-muted-foreground">{dog.breed}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-body text-sm text-primary hover:underline transition-colors">
+              Reserve your founding spot →
+            </a>
           </div>
         </div>
       </section>
@@ -341,6 +338,18 @@ const Index = () => {
               </button>
             </form>
           )}
+        </div>
+      </section>
+
+      {/* Partner Logos */}
+      <section className="py-16 bg-muted border-y border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-8 text-center">Backed & Validated By</p>
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            <img src={foundersLogo} alt="Jason Calacanis Founder University" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
         </div>
       </section>
 

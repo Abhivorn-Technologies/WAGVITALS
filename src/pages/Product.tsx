@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
-import collarImg from "@/assets/collar-product.jpg";
-import appMockup from "@/assets/app-mockup.jpg";
+import heroDog from "@/assets/hero-dog.jpg";
+import dogPitbull from "@/assets/dog-pitbull.jpg";
+import dogGolden from "@/assets/dog-golden.jpg";
 import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain, Video } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
@@ -35,12 +36,36 @@ const Product = () => {
               </p>
             </div>
             <img
-              src={collarImg}
-              alt="WagVitals smart health collar product render"
+              src={heroDog}
+              alt="Doberman wearing WagVitals smart health collar with precision module"
               width={1024}
               height={1024}
               className="rounded-2xl w-full max-w-lg mx-auto glow-gold"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Product Gallery */}
+      <section className="py-24 bg-muted">
+        <div className="container mx-auto px-4 lg:px-8">
+          <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3 text-center">Designed for Every Dog</p>
+          <h2 className="font-display text-4xl font-bold italic mb-12 text-center">
+            See it in <span className="text-gradient-gold">action.</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { img: heroDog, alt: "Doberman with WagVitals collar showing precision data module", label: "Doberman · 18.2kg · 72 HR Cycle" },
+              { img: dogPitbull, alt: "Pitbull with WagVitals collar showing real-time monitoring", label: "Pitbull · 24.5kg · 72 HR Cycle" },
+              { img: dogGolden, alt: "Golden Retriever with WagVitals collar biometric tracking", label: "Golden Retriever · 29.5kg · 72 HR Cycle" },
+            ].map((dog, i) => (
+              <div key={dog.label} className="rounded-2xl overflow-hidden border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: `${i * 0.15}s`, animationFillMode: "forwards" }}>
+                <img src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-72 object-cover" />
+                <div className="p-4 bg-card">
+                  <p className="font-body text-xs text-muted-foreground">{dog.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -85,17 +110,17 @@ const Product = () => {
         </div>
       </section>
 
-      {/* App Mockup */}
+      {/* App Features */}
       <section className="py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <img
-              src={appMockup}
-              alt="WagVitals companion app showing health dashboard"
+              src={dogGolden}
+              alt="Golden Retriever wearing WagVitals collar - companion app integration"
               loading="lazy"
               width={800}
               height={1024}
-              className="rounded-2xl w-full max-w-sm mx-auto"
+              className="rounded-2xl w-full max-w-sm mx-auto glow-gold"
             />
             <div>
               <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Companion App</p>

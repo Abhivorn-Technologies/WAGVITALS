@@ -1,4 +1,8 @@
 import Layout from "@/components/Layout";
+import dogGolden from "@/assets/dog-golden.jpg";
+import foundersLogo from "@/assets/founders-logo.png";
+import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
+import uarfLogo from "@/assets/uarf-logo.png";
 import { ArrowRight, Shield, Lock, Users, Star, Check, CheckCircle } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
@@ -39,50 +43,58 @@ const Founding50 = () => {
         </div>
       </section>
 
-      {/* Pricing Card */}
+      {/* Product Image + Pricing Card */}
       <section className="pb-24">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-xl mx-auto bg-card rounded-3xl border border-border p-10 glow-gold opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
-            <div className="text-center mb-8">
-              <span className="font-display text-6xl font-bold text-gradient-gold">$49</span>
-              <p className="font-body text-sm text-muted-foreground mt-2">Reserve today · $200 at delivery</p>
-              <p className="font-body text-base text-foreground font-semibold mt-1">$49 deposit + $200 at delivery = <span className="text-gradient-gold">$249 total</span></p>
-              <p className="font-body text-xs text-muted-foreground mt-1">+ $15/mo Vitals+ subscription (cancel anytime)</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <img
+              src={dogGolden}
+              alt="Golden Retriever wearing WagVitals smart collar"
+              className="rounded-2xl w-full max-w-md mx-auto glow-gold opacity-0 animate-fade-in-up"
+              style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+            />
+            <div className="bg-card rounded-3xl border border-border p-10 glow-gold opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+              <div className="text-center mb-8">
+                <span className="font-display text-6xl font-bold text-gradient-gold">$49</span>
+                <p className="font-body text-sm text-muted-foreground mt-2">Reserve today · $200 at delivery</p>
+                <p className="font-body text-base text-foreground font-semibold mt-1">$49 deposit + $200 at delivery = <span className="text-gradient-gold">$249 total</span></p>
+                <p className="font-body text-xs text-muted-foreground mt-1">+ $15/mo Vitals+ subscription (cancel anytime)</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: Star, text: "Founding Member status — forever" },
+                  { icon: Lock, text: "Locked-in pricing — never pay more" },
+                  { icon: Users, text: "Direct access to the WagVitals team" },
+                  { icon: Shield, text: "Premium zirconia ceramic housing" },
+                  { icon: Check, text: "Priority shipping — first batch" },
+                  { icon: Check, text: "Shape product features with your feedback" },
+                  { icon: Check, text: "AI health guidance & $25 vet calls included" },
+                ].map((perk) => (
+                  <div key={perk.text} className="flex items-center gap-3">
+                    <perk.icon size={16} className="text-primary shrink-0" />
+                    <span className="font-body text-sm text-foreground">{perk.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={STRIPE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-center flex items-center justify-center gap-2"
+              >
+                Reserve Your Founding Spot — $49
+                <ArrowRight size={18} />
+              </a>
+
+              <p className="mt-3 font-body text-xs text-accent text-center">
+                ✓ Fully refundable — if WagVitals doesn't ship, you get 100% of your $49 back.
+              </p>
+              <p className="mt-2 font-body text-xs text-muted-foreground text-center">
+                Secure checkout via Stripe.
+              </p>
             </div>
-
-            <div className="space-y-4 mb-8">
-              {[
-                { icon: Star, text: "Founding Member status — forever" },
-                { icon: Lock, text: "Locked-in pricing — never pay more" },
-                { icon: Users, text: "Direct access to the WagVitals team" },
-                { icon: Shield, text: "Premium zirconia ceramic housing" },
-                { icon: Check, text: "Priority shipping — first batch" },
-                { icon: Check, text: "Shape product features with your feedback" },
-                { icon: Check, text: "AI health guidance & $25 vet calls included" },
-              ].map((perk) => (
-                <div key={perk.text} className="flex items-center gap-3">
-                  <perk.icon size={16} className="text-primary shrink-0" />
-                  <span className="font-body text-sm text-foreground">{perk.text}</span>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={STRIPE_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-center flex items-center justify-center gap-2"
-            >
-              Reserve Your Founding Spot — $49
-              <ArrowRight size={18} />
-            </a>
-
-            <p className="mt-3 font-body text-xs text-accent text-center">
-              ✓ Fully refundable — if WagVitals doesn't ship, you get 100% of your $49 back.
-            </p>
-            <p className="mt-2 font-body text-xs text-muted-foreground text-center">
-              Secure checkout via Stripe.
-            </p>
           </div>
 
           {/* Trust Badges */}
@@ -97,6 +109,17 @@ const Founding50 = () => {
                 <span className="font-body">{badge.text}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Logos */}
+      <section className="py-12 bg-muted border-y border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            <img src={foundersLogo} alt="Jason Calacanis Founder University" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </section>
