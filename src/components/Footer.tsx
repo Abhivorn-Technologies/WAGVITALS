@@ -96,10 +96,20 @@ const Footer = () => {
           <p className="text-xs text-muted-foreground font-body leading-relaxed max-w-4xl">
             WagVitals is a pet health wearable in active development, targeting Early 2027 delivery. This is a reservation for a founding member pre-order, not a final purchase. Device specifications may evolve prior to delivery. WagVitals tracks biometric trends and activity — it is not a medical device and does not diagnose or treat health conditions. All $49 deposits are fully refundable.
           </p>
-          <div className="flex items-center gap-1 mt-6 text-xs text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-1 mt-6 text-xs text-muted-foreground">
             <span>© 2026 WagVitals. Made with</span>
             <Heart size={12} className="text-blush" />
             <span>for every dog.</span>
+            <span className="mx-1">•</span>
+            <a 
+              href="https://abhivorn.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-muted-foreground hover:text-primary transition-colors font-semibold"
+              aria-label="Visit Abhivorn Technologies website"
+            >
+              Developed by Abhivorn Technologies
+            </a>
           </div>
         </div>
       </div>

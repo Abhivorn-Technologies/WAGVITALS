@@ -30,11 +30,11 @@ const Founding50 = () => {
           <ScrollAnimate animation="scale-in" delay={0.25}>
             <div className="max-w-md mx-auto mb-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-body text-sm text-muted-foreground">All 50 founding spots claimed!</span>
-                <span className="font-body text-sm text-primary font-semibold">100% filled</span>
+                <span className="font-body text-sm text-muted-foreground">50 spots claimed!</span>
+                <span className="font-body text-sm text-primary font-semibold">75%</span>
               </div>
               <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                <div className="bg-gradient-gold h-full rounded-full transition-all duration-1000" style={{ width: "100%" }} />
+                <div className="bg-gradient-gold h-full rounded-full transition-all duration-1000" style={{ width: "75%" }} />
               </div>
             </div>
           </ScrollAnimate>
