@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
+import SmoothImage from "@/components/SmoothImage";
 import heroDog from "@/assets/hero-dog.jpg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
@@ -35,7 +36,7 @@ const Product = () => {
               </ScrollAnimate>
             </div>
             <ScrollAnimate animation="scale-in" delay={0.2}>
-              <img src={heroDog} alt="Doberman wearing WagVitals smart health collar with precision module" width={1024} height={1024} className="rounded-2xl w-full max-w-lg mx-auto glow-gold" />
+              <SmoothImage src={heroDog} alt="Doberman wearing WagVitals smart health collar with precision module" width={1024} height={1024} className="rounded-2xl w-full max-w-lg mx-auto glow-gold" />
             </ScrollAnimate>
           </div>
         </div>
@@ -58,7 +59,7 @@ const Product = () => {
             ].map((dog, i) => (
               <ScrollAnimate key={dog.label} animation="fade-in-up" delay={i * 0.15}>
                 <div className="rounded-2xl overflow-hidden border border-border hover:-translate-y-1 transition-transform duration-300">
-                  <img src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-72 object-cover" />
+                  <SmoothImage src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-72 object-cover" wrapperClassName="h-72" />
                   <div className="p-4 bg-card"><p className="font-body text-xs text-muted-foreground">{dog.label}</p></div>
                 </div>
               </ScrollAnimate>
@@ -107,7 +108,7 @@ const Product = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimate animation="slide-in-left">
-              <img src={dogGolden} alt="Golden Retriever wearing WagVitals collar" loading="lazy" width={800} height={1024} className="rounded-2xl w-full max-w-sm mx-auto glow-gold" />
+              <SmoothImage src={dogGolden} alt="Golden Retriever wearing WagVitals collar" loading="lazy" width={800} height={1024} className="rounded-2xl w-full max-w-sm mx-auto glow-gold" />
             </ScrollAnimate>
             <ScrollAnimate animation="slide-in-right" delay={0.1}>
               <div>

@@ -98,6 +98,11 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.6" },
         },
+        "loader-bar": {
+          "0%": { transform: "translateX(-100%)" },
+          "50%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -106,6 +111,7 @@ export default {
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "slide-up": "slide-up 0.7s ease-out forwards",
         "pulse-gold": "pulse-gold 2s ease-in-out infinite",
+        "loader-bar": "loader-bar 1.2s ease-in-out infinite",
       },
     },
   },

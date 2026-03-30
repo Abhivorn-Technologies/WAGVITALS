@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
+import SmoothImage from "@/components/SmoothImage";
 import heroDog from "@/assets/hero-dog.jpg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
@@ -24,7 +25,7 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroDog} alt="Doberman wearing WagVitals smart health collar" width={1920} height={1080} className="w-full h-full object-cover" />
+          <SmoothImage src={heroDog} alt="Doberman wearing WagVitals smart health collar" width={1920} height={1080} className="w-full h-full object-cover object-top" wrapperClassName="w-full h-full" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
         </div>
         <div className="relative container mx-auto px-4 lg:px-8 py-20">
@@ -97,7 +98,7 @@ const Index = () => {
             ].map((dog, i) => (
               <ScrollAnimate key={dog.breed} animation="fade-in-up" delay={i * 0.15}>
                 <div className="rounded-2xl overflow-hidden border border-border hover:-translate-y-1 transition-transform duration-300">
-                  <img src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-80 object-cover" />
+                  <SmoothImage src={dog.img} alt={dog.alt} loading="lazy" className="w-full h-80 object-cover" wrapperClassName="h-80" />
                   <div className="p-4 bg-card">
                     <p className="font-body text-sm text-muted-foreground">{dog.breed}</p>
                   </div>
