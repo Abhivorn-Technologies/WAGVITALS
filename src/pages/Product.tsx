@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
+import SmoothImage from "@/components/SmoothImage";
 import heroDog from "@/assets/hero-dog.jpg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
