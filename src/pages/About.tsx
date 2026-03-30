@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
+import SmoothImage from "@/components/SmoothImage";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import foundersLogo from "@/assets/founders-logo.png";
 import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
@@ -34,7 +35,7 @@ const About = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimate animation="slide-in-left">
-              <img src={dogPitbull} alt="Pitbull wearing WagVitals collar" loading="lazy" width={800} height={1024} className="rounded-2xl w-full max-w-md mx-auto glow-gold" />
+              <SmoothImage src={dogPitbull} alt="Pitbull wearing WagVitals collar" loading="lazy" width={800} height={1024} className="rounded-2xl w-full max-w-md mx-auto glow-gold" />
             </ScrollAnimate>
             <ScrollAnimate animation="slide-in-right" delay={0.1}>
               <div>
