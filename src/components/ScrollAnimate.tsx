@@ -26,7 +26,8 @@ const ScrollAnimate = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(el);
+        } else {
+          setIsVisible(false);
         }
       },
       { threshold }

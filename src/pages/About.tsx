@@ -102,8 +102,10 @@ const About = () => {
             <h2 className="font-display text-3xl font-bold italic mb-4">Where we are <span className="text-gradient-gold">now.</span></h2>
             <p className="font-body text-muted-foreground mb-12">Working prototype expected in 4–8 weeks · Delivery: Early 2027</p>
           </ScrollAnimate>
+          {/* Mobile: vertical timeline, Desktop: horizontal */}
           <ScrollAnimate animation="scale-in" delay={0.15}>
-            <div className="flex items-center justify-between relative">
+            {/* Desktop horizontal */}
+            <div className="hidden sm:flex items-center justify-between relative">
               <div className="absolute top-4 left-0 right-0 h-0.5 bg-border" />
               {[
                 { label: "Waitlist Open", active: true, current: false },
@@ -118,6 +120,27 @@ const About = () => {
                   </div>
                   <span className={`mt-2 font-body text-xs text-center max-w-[80px] ${step.current ? "text-destructive font-semibold" : step.active ? "text-primary" : "text-muted-foreground"}`}>{step.label}</span>
                   {step.current && <span className="text-[10px] text-destructive font-semibold mt-0.5">You Are Here</span>}
+                </div>
+              ))}
+            </div>
+            {/* Mobile vertical */}
+            <div className="flex sm:hidden flex-col gap-4 items-start relative pl-6">
+              <div className="absolute top-0 bottom-0 left-[15px] w-0.5 bg-border" />
+              {[
+                { label: "Waitlist Open", active: true, current: false },
+                { label: "Prototype", active: true, current: true },
+                { label: "Beta Testing", active: false, current: false },
+                { label: "Kickstarter", active: false, current: false },
+                { label: "Delivery", active: false, current: false },
+              ].map((step) => (
+                <div key={step.label} className="relative flex items-center gap-3 z-10">
+                  <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center shrink-0 -ml-6 ${step.current ? "bg-destructive border-destructive" : step.active ? "bg-primary border-primary" : "bg-muted border-border"}`}>
+                    {step.current && <span className="text-xs font-bold text-destructive-foreground">●</span>}
+                  </div>
+                  <div>
+                    <span className={`font-body text-sm ${step.current ? "text-destructive font-semibold" : step.active ? "text-primary" : "text-muted-foreground"}`}>{step.label}</span>
+                    {step.current && <span className="block text-[10px] text-destructive font-semibold">You Are Here</span>}
+                  </div>
                 </div>
               ))}
             </div>

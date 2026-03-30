@@ -23,7 +23,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[80vh] sm:min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <SmoothImage src={heroDog} alt="Doberman wearing WagVitals smart health collar" width={1920} height={1080} className="w-full h-full object-cover object-top" wrapperClassName="w-full h-full" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
@@ -33,7 +33,7 @@ const Index = () => {
             <p className="font-body text-sm tracking-[0.3em] uppercase text-primary mb-4">Smart Health Collar for Dogs</p>
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.1}>
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[0.9] mb-6">
+            <h1 className="font-display text-4xl sm:text-7xl lg:text-8xl font-bold leading-[0.9] mb-6">
               Know<br /><span className="text-gradient-gold italic">Before.</span>
             </h1>
           </ScrollAnimate>
@@ -73,7 +73,7 @@ const Index = () => {
               { stat: "90M", label: "Dog households in America" },
             ].map((item, i) => (
               <ScrollAnimate key={item.stat} animation="fade-in-up" delay={i * 0.15}>
-                <span className="font-display text-5xl sm:text-6xl font-bold text-gradient-gold">{item.stat}</span>
+                <span className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gradient-gold">{item.stat}</span>
                 <p className="font-body text-sm text-muted-foreground mt-2">{item.label}</p>
               </ScrollAnimate>
             ))}
