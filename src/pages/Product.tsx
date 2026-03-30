@@ -176,7 +176,7 @@ const Product = () => {
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <ScrollAnimate animation="fade-in-up">
             <h2 className="font-display text-4xl font-bold italic mb-4">Simple <span className="text-gradient-gold">pricing.</span></h2>
-            <p className="font-body text-base text-muted-foreground mb-16">Less than a coffee a month. More than a $1,500 vet bill saved.</p>
+            <p className="font-body text-base text-muted-foreground mb-16">Less than a vet co-pay a month. More than a $1,500 vet bill saved.</p>
           </ScrollAnimate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <ScrollAnimate animation="fade-in-up" delay={0.1}>
