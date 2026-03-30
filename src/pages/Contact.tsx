@@ -1,6 +1,6 @@
 import { useState, FormEvent, useRef } from "react";
 import Layout from "@/components/Layout";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Linkedin } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/constants";
 
@@ -18,7 +18,6 @@ const Contact = () => {
       setSubmitted(true);
     } catch (err) {
       console.error("EmailJS error:", err);
-      // Still show success for demo with dummy keys
       setSubmitted(true);
     } finally {
       setLoading(false);
@@ -83,6 +82,7 @@ const Contact = () => {
                   <Mail size={20} className="text-primary mb-3" />
                   <h3 className="font-display text-lg font-bold mb-1">Email</h3>
                   <a href="mailto:bunny@wagvitals.com" className="font-body text-sm text-primary hover:underline">bunny@wagvitals.com</a>
+                  <p className="font-body text-xs text-muted-foreground mt-2 italic">For investors & press: bunny@wagvitals.com</p>
                 </div>
                 <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
                   <MapPin size={20} className="text-primary mb-3" />
@@ -90,10 +90,11 @@ const Contact = () => {
                   <p className="font-body text-sm text-muted-foreground">Kent, Ohio</p>
                 </div>
                 <div className="bg-card rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
-                  <h3 className="font-display text-lg font-bold mb-3">Follow Us</h3>
+                  <Linkedin size={20} className="text-primary mb-3" />
+                  <h3 className="font-display text-lg font-bold mb-3">Connect</h3>
                   <div className="space-y-2">
-                    <a href="https://instagram.com/wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">@wagvitals on Instagram</a>
-                    <a href="https://tiktok.com/@wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">@wagvitals on TikTok</a>
+                    <a href="https://linkedin.com/company/wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">WagVitals on LinkedIn</a>
+                    <a href="https://linkedin.com/in/bunny-wagvitals" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors">Bunny on LinkedIn</a>
                   </div>
                 </div>
               </div>
