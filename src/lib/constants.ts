@@ -1,5 +1,5 @@
 // Public keys — safe to store in codebase
-export const STRIPE_CHECKOUT_URL = "https://buy.stripe.com/00w28r3BugcRfDPeiU";
+export const STRIPE_CHECKOUT_URL = "https://buy.stripe.com/00w28r3BugcRfDPeiUgnK00";
 
 // EmailJS (replace with your real credentials)
 export const EMAILJS_SERVICE_ID = "service_wagvitals";

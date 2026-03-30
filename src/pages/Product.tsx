@@ -1,9 +1,8 @@
 import Layout from "@/components/Layout";
 import collarImg from "@/assets/collar-product.jpg";
 import appMockup from "@/assets/app-mockup.jpg";
-import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X } from "lucide-react";
-
-const STRIPE_LINK = "https://buy.stripe.com/00w28r3BugcRfDPeiU";
+import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain, Video } from "lucide-react";
+import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const Product = () => {
   return (
@@ -18,7 +17,7 @@ const Product = () => {
                 Health data,<br /><span className="text-gradient-gold">always on.</span>
               </h1>
               <p className="font-body text-lg text-muted-foreground mb-8 max-w-lg">
-                A premium ceramic smart collar that continuously monitors your dog's heart rate, body temperature, and activity — sending real-time alerts to your phone.
+                A premium ceramic smart collar that continuously monitors your dog's heart rate, body temperature, and activity — with AI guidance and $25 vet calls on demand.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -31,6 +30,9 @@ const Product = () => {
                   <ArrowRight size={18} />
                 </a>
               </div>
+              <p className="mt-3 font-body text-xs text-accent">
+                ✓ Fully refundable — $49 deposit + $200 at delivery = $249 total
+              </p>
             </div>
             <img
               src={collarImg}
@@ -50,20 +52,35 @@ const Product = () => {
           <h2 className="font-display text-4xl font-bold italic mb-16 text-center">
             Precision <span className="text-gradient-gold">engineering.</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Heart, label: "Heart Rate", spec: "MAX30101", desc: "Optical pulse oximetry sensor for continuous heart rate tracking" },
-              { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "Non-contact infrared thermometer for real-time body temp" },
-              { icon: Activity, label: "Activity", spec: "NRF52840", desc: "Built-in accelerometer for movement, sleep & behavior patterns" },
-              { icon: Cpu, label: "Housing", spec: "Zirconia Ceramic", desc: "Medical-grade ceramic — hypoallergenic, durable, and premium" },
+              { icon: Heart, label: "Heart Rate", spec: "MAX30101", desc: "Catch irregular rhythms before they become emergencies — continuous optical pulse monitoring." },
+              { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "Fever alerts before your dog shows visible signs — non-contact infrared, industry-first at consumer price.", badge: "Industry First" },
+              { icon: Activity, label: "Activity", spec: "NRF52840", desc: "See when behavior changes — rest, play, stress, sleep patterns via 6-axis accelerometer." },
+              { icon: Cpu, label: "Housing", spec: "Zirconia Ceramic", desc: "Medical-grade ceramic — hypoallergenic, durable, and premium feel." },
+              { icon: Brain, label: "AI Guidance", spec: "Vitals+ App", desc: "Plain-English alerts and recommendations based on your dog's live biometric trends." },
+              { icon: Video, label: "$25 Vet Calls", spec: "On-demand", desc: "20-min video call with a licensed vet who sees your dog's actual vitals in real time." },
             ].map((s, i) => (
               <div key={s.label} className="bg-muted rounded-2xl p-6 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: `${i * 0.12}s`, animationFillMode: "forwards" }}>
                 <s.icon size={24} className="text-primary mb-4" />
+                {s.badge && (
+                  <span className="inline-block bg-destructive/10 text-destructive text-xs font-semibold px-3 py-1 rounded-full mb-2">{s.badge}</span>
+                )}
                 <h3 className="font-display text-xl font-bold mb-1">{s.label}</h3>
                 <p className="font-body text-xs text-primary font-semibold mb-2">{s.spec}</p>
                 <p className="font-body text-xs text-muted-foreground">{s.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <a
+              href={STRIPE_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-body text-sm text-primary hover:underline transition-colors"
+            >
+              Reserve your founding spot →
+            </a>
           </div>
         </div>
       </section>
@@ -89,8 +106,10 @@ const Product = () => {
                 {[
                   "Real-time heart rate & temperature dashboard",
                   "Activity tracking with daily/weekly trends",
+                  "AI health guidance — plain-English alerts",
                   "Smart alerts when vitals deviate from baseline",
                   "Share health reports with your vet instantly",
+                  "$25 on-demand vet video calls",
                   "Track multiple dogs on one account",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body text-sm text-muted-foreground">
@@ -108,9 +127,12 @@ const Product = () => {
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3 text-center">How We Compare</p>
-          <h2 className="font-display text-4xl font-bold italic mb-16 text-center">
+          <h2 className="font-display text-4xl font-bold italic mb-6 text-center">
             WagVitals vs. the <span className="text-gradient-gold">rest.</span>
           </h2>
+          <p className="font-body text-base text-muted-foreground text-center max-w-2xl mx-auto mb-16">
+            The only collar that monitors heart rate, body temperature, AND activity together — no other consumer collar does this.
+          </p>
           <div className="overflow-x-auto">
             <table className="w-full min-w-[600px] font-body text-sm">
               <thead>
@@ -127,6 +149,8 @@ const Product = () => {
                   ["Heart Rate", true, false, false, true],
                   ["Body Temperature", true, false, false, true],
                   ["Activity Tracking", true, true, true, true],
+                  ["AI Health Guidance", true, false, false, false],
+                  ["$25 Vet Calls", true, false, false, false],
                   ["GPS Location", false, false, true, false],
                   ["Real-time Alerts", true, false, false, true],
                   ["Ceramic Housing", true, false, false, false],
@@ -150,39 +174,63 @@ const Product = () => {
       {/* Pricing */}
       <section className="py-24">
         <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h2 className="font-display text-4xl font-bold italic mb-16">
+          <h2 className="font-display text-4xl font-bold italic mb-4">
             Simple <span className="text-gradient-gold">pricing.</span>
           </h2>
-          <div className="inline-flex flex-col items-center bg-card rounded-2xl p-10 border border-border glow-gold max-w-md w-full opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
-            <h3 className="font-display text-2xl font-bold mb-2">WagVitals Collar</h3>
-            <div className="flex items-baseline gap-1 mb-1">
+          <p className="font-body text-base text-muted-foreground mb-16">Less than a coffee a month. More than a $1,500 vet bill saved.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div className="bg-card rounded-2xl p-10 border border-border glow-gold opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+              <h3 className="font-display text-2xl font-bold mb-2">WagVitals Collar</h3>
               <span className="font-display text-5xl font-bold text-gradient-gold">$249</span>
+              <p className="font-body text-sm text-muted-foreground mt-2">One-time purchase</p>
+              <ul className="space-y-3 text-left mt-6 mb-8">
+                {[
+                  "Continuous heart rate monitoring",
+                  "Real-time temperature tracking",
+                  "Activity & sleep analysis",
+                  "Zirconia ceramic housing",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 font-body text-sm text-muted-foreground">
+                    <Check size={14} className="text-primary shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={STRIPE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full block bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-center"
+              >
+                Reserve — $49 Deposit
+              </a>
+              <p className="mt-3 font-body text-xs text-accent">✓ Fully refundable · $49 now + $200 at delivery</p>
             </div>
-            <p className="font-body text-sm text-muted-foreground mb-6">+ $15/month Vitals+ subscription</p>
-            <ul className="space-y-3 text-left mb-8 w-full">
-              {[
-                "Continuous heart rate monitoring",
-                "Real-time temperature tracking",
-                "Activity & sleep analysis",
-                "Smart health alerts",
-                "Vet-shareable reports",
-                "Zirconia ceramic housing",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 font-body text-sm text-muted-foreground">
-                  <Check size={14} className="text-primary shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={STRIPE_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-center"
-            >
-              Reserve Your Founding Spot — $49
-            </a>
-            <p className="mt-3 font-body text-xs text-muted-foreground">Fully refundable · Early 2027 delivery</p>
+
+            <div className="bg-card rounded-2xl p-10 border border-border opacity-0 animate-fade-in-up hover:-translate-y-1 transition-transform duration-300" style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}>
+              <h3 className="font-display text-2xl font-bold mb-2">Vitals+ Subscription</h3>
+              <div className="flex items-baseline justify-center gap-1">
+                <span className="font-display text-5xl font-bold text-gradient-gold">$15</span>
+                <span className="font-body text-lg text-muted-foreground">/mo</span>
+              </div>
+              <p className="font-body text-sm text-muted-foreground mt-2">Cancel anytime</p>
+              <ul className="space-y-3 text-left mt-6 mb-8">
+                {[
+                  "AI health guidance & alerts",
+                  "$25 on-demand vet video calls",
+                  "30-day trend analytics",
+                  "Vet-shareable health reports",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 font-body text-sm text-muted-foreground">
+                    <Check size={14} className="text-primary shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="w-full block bg-muted text-foreground font-body font-semibold px-8 py-4 rounded-full text-center border border-border">
+                Included with Collar
+              </div>
+            </div>
           </div>
         </div>
       </section>
