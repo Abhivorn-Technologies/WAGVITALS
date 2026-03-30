@@ -4,6 +4,7 @@ import SmoothImage from "@/components/SmoothImage";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
 import uarfLogo from "@/assets/uarf-logo.png";
+import founderLogo from "@/assets/founders-logo.png"
 import { Users, Heart, ArrowRight, Shield } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
@@ -88,6 +89,7 @@ const About = () => {
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
               <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+              <img src={founderLogo} alt="Founder Logo" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity"/>
             </div>
           </ScrollAnimate>
         </div>
@@ -98,7 +100,7 @@ const About = () => {
         <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
           <ScrollAnimate animation="fade-in-up">
             <h2 className="font-display text-3xl font-bold italic mb-4">Where we are <span className="text-gradient-gold">now.</span></h2>
-            <p className="font-body text-muted-foreground mb-12">Working prototype expected in 4–8 weeks · Delivery: Early 2027</p>
+            <p className="font-body text-muted-foreground mb-12">Beta testing in Progress · Delivery: Early 2027</p>
           </ScrollAnimate>
           {/* Mobile: vertical timeline, Desktop: horizontal */}
           <ScrollAnimate animation="scale-in" delay={0.15}>

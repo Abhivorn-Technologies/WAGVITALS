@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
 import SmoothImage from "@/components/SmoothImage";
-import heroDog from "@/assets/hero-dog.jpg";
+import heroDog from "@/assets/hero-dog.jpeg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
 import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain } from "lucide-react";
@@ -77,9 +77,9 @@ const Product = () => {
           </ScrollAnimate>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Heart, label: "Heart Rate", spec: "MAX30101", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts." },
-              { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", badge: "Industry First" },
-              { icon: Activity, label: "Activity & Rest", spec: "NRF52840", desc: "Know the difference between a lazy afternoon and something wrong. Track rest, play, stress, and sleep patterns over time." },
+              { icon: Heart, label: "Heart Rate", spec: "", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts." },
+              { icon: Thermometer, label: "Temperature", spec: "", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", badge: "Industry First" },
+              { icon: Activity, label: "Activity & Rest", spec: "", desc: "Know the difference between a lazy afternoon and something wrong. Track rest, play, stress, and sleep patterns over time." },
               { icon: Cpu, label: "Housing", spec: "Zirconia Ceramic", desc: "Medical-grade ceramic — hypoallergenic, durable, and premium feel." },
               { icon: Brain, label: "AI Health Guidance", spec: "Vitals+ App", desc: "Your dog's vitals, translated. Plain-English alerts tell you what the numbers mean and when to call your vet — before it becomes an emergency." },
             ].map((s, i) => (
@@ -176,7 +176,7 @@ const Product = () => {
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <ScrollAnimate animation="fade-in-up">
             <h2 className="font-display text-4xl font-bold italic mb-4">Simple <span className="text-gradient-gold">pricing.</span></h2>
-            <p className="font-body text-base text-muted-foreground mb-16">Less than a coffee a month. More than a $1,500 vet bill saved.</p>
+            <p className="font-body text-base text-muted-foreground mb-16">Less than a vet co-pay a month. More than a $1,500 vet bill saved.</p>
           </ScrollAnimate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <ScrollAnimate animation="fade-in-up" delay={0.1}>
