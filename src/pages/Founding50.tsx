@@ -4,6 +4,7 @@ import SmoothImage from "@/components/SmoothImage";
 import dogGolden from "@/assets/dog-golden.jpg";
 import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
 import uarfLogo from "@/assets/uarf-logo.png";
+import founderLogo from "@/assets/founders-logo.png"
 import { ArrowRight, Shield, Lock, Users, Star, Check, CheckCircle } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
@@ -30,7 +31,7 @@ const Founding50 = () => {
           <ScrollAnimate animation="scale-in" delay={0.25}>
             <div className="max-w-md mx-auto mb-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-body text-sm text-muted-foreground">50 spots claimed!</span>
+                <span className="font-body text-sm text-muted-foreground">Filling fast</span>
                 <span className="font-body text-sm text-primary font-semibold">75%</span>
               </div>
               <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
@@ -114,6 +115,7 @@ const Founding50 = () => {
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
               <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+              <img src={founderLogo} alt="Founder Logo" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity"/>
             </div>
           </ScrollAnimate>
         </div>
@@ -128,7 +130,7 @@ const Founding50 = () => {
           <div className="space-y-8">
             {[
               { step: "01", title: "Reserve your spot", desc: "Pay a $49 refundable deposit to secure your founding member position." },
-              { step: "02", title: "We build & test", desc: "Working prototype in 4–8 weeks. Your feedback helps shape the final product." },
+              { step: "02", title: "We build & test", desc: "Working on Beta. Your feedback helps shape the final product." },
               { step: "03", title: "Receive your collar", desc: "Pay the remaining $200 at delivery. Total: $249. Estimated: Early 2027." },
             ].map((item) => (
               <ScrollAnimate key={item.step} animation="slide-in-left" delay={Number(item.step) * 0.12}>
