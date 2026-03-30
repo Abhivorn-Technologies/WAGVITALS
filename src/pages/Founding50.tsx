@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
 import SmoothImage from "@/components/SmoothImage";
 import dogGolden from "@/assets/dog-golden.jpg";
-import foundersLogo from "@/assets/founders-logo.png";
 import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
 import uarfLogo from "@/assets/uarf-logo.png";
 import { ArrowRight, Shield, Lock, Users, Star, Check, CheckCircle } from "lucide-react";
@@ -31,11 +30,11 @@ const Founding50 = () => {
           <ScrollAnimate animation="scale-in" delay={0.25}>
             <div className="max-w-md mx-auto mb-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-body text-sm text-muted-foreground">42 of 50 spots remaining</span>
-                <span className="font-body text-sm text-primary font-semibold">16% claimed</span>
+                <span className="font-body text-sm text-muted-foreground">All 50 founding spots claimed!</span>
+                <span className="font-body text-sm text-primary font-semibold">100% filled</span>
               </div>
               <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                <div className="bg-gradient-gold h-full rounded-full transition-all duration-1000" style={{ width: "16%" }} />
+                <div className="bg-gradient-gold h-full rounded-full transition-all duration-1000" style={{ width: "100%" }} />
               </div>
             </div>
           </ScrollAnimate>
@@ -75,7 +74,7 @@ const Founding50 = () => {
                     { icon: Shield, text: "Premium zirconia ceramic housing" },
                     { icon: Check, text: "Priority shipping — first batch" },
                     { icon: Check, text: "Shape product features with your feedback" },
-                    { icon: Check, text: "AI health guidance & $25 vet calls included" },
+                    { icon: Check, text: "AI health guidance included" },
                   ].map((perk) => (
                     <div key={perk.text} className="flex items-center gap-3">
                       <perk.icon size={16} className="text-primary shrink-0" />
@@ -95,7 +94,6 @@ const Founding50 = () => {
           <ScrollAnimate animation="fade-in" delay={0.2}>
             <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
               {[
-                { icon: Shield, text: "NSF I-Corps Validated" },
                 { icon: CheckCircle, text: "Clinically Advised — Daniel Baum" },
                 { icon: Shield, text: "Kent State University" },
               ].map((badge) => (
@@ -114,7 +112,6 @@ const Founding50 = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollAnimate animation="fade-in-up">
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-              <img src={foundersLogo} alt="Jason Calacanis Founder University" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={globalClevelandLogo} alt="Global Cleveland" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
               <img src={uarfLogo} alt="University of Akron Research Foundation" className="h-10 md:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
             </div>

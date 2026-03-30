@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, Mail, MapPin, Linkedin } from "lucide-react";
+import { Heart, Mail, MapPin, Linkedin, Instagram } from "lucide-react";
 import wagvitalsLogo from "@/assets/wagvitals-logo.png";
 
 const Footer = () => {
@@ -45,20 +45,10 @@ const Footer = () => {
               "When pets speak through data."
             </p>
             <div className="flex items-center gap-4 mt-6">
-              <a
-                href="https://linkedin.com/company/wagvitals"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors text-sm"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="mailto:bunny@wagvitals.com"
-                className="text-muted-foreground hover:text-primary transition-colors text-sm"
-              >
-                Email
-              </a>
+              <a href="https://www.linkedin.com/in/bhuvaneshwarreddy-kosna-644807190/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm">LinkedIn</a>
+              <a href="https://www.instagram.com/wagvitals?igsh=MWl4cGJ4NmtlbjcyZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm">Instagram</a>
+              <a href="https://x.com/wagvitals?s=21" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm">X</a>
+              <a href="mailto:bunny@wagvitals.com" className="text-muted-foreground hover:text-primary transition-colors text-sm">Email</a>
             </div>
           </div>
 
@@ -88,8 +78,11 @@ const Footer = () => {
               <span className="flex items-center gap-2">
                 <MapPin size={14} /> Kent, Ohio
               </span>
-              <a href="https://linkedin.com/in/bunny-wagvitals" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/in/bhuvaneshwarreddy-kosna-644807190/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Linkedin size={14} /> LinkedIn
+              </a>
+              <a href="https://www.instagram.com/wagvitals?igsh=MWl4cGJ4NmtlbjcyZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <Instagram size={14} /> Instagram
               </a>
             </div>
             <p className="mt-4 text-xs text-muted-foreground italic">

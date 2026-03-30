@@ -4,7 +4,7 @@ import SmoothImage from "@/components/SmoothImage";
 import heroDog from "@/assets/hero-dog.jpg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
-import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain, Video } from "lucide-react";
+import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const Product = () => {
@@ -115,7 +115,7 @@ const Product = () => {
                 <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Companion App</p>
                 <h2 className="font-display text-4xl font-bold italic mb-6">Your dog's health,<br /><span className="text-gradient-gold">at a glance.</span></h2>
                 <ul className="space-y-4">
-                  {["Real-time heart rate & temperature dashboard", "Activity tracking with daily/weekly trends", "AI health guidance — plain-English alerts", "Smart alerts when vitals deviate from baseline", "Share health reports with your vet instantly", "$25 on-demand vet video calls", "Track multiple dogs on one account"].map((item) => (
+                  {["Real-time heart rate & temperature dashboard", "Activity tracking with daily/weekly trends", "AI health guidance — plain-English alerts", "Smart alerts when vitals deviate from baseline", "Share health reports with your vet instantly", "Track multiple dogs on one account"].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-sm text-muted-foreground"><Check size={16} className="text-primary mt-0.5 shrink-0" />{item}</li>
                   ))}
                 </ul>
@@ -151,7 +151,6 @@ const Product = () => {
                     ["Body Temperature", true, false, false, true],
                     ["Activity Tracking", true, true, true, true],
                     ["AI Health Guidance", true, false, false, false],
-                    ["$25 Vet Calls", true, false, false, false],
                     ["GPS Location", false, false, true, false],
                     ["Real-time Alerts", true, false, false, true],
                     ["Ceramic Housing", true, false, false, false],
@@ -204,7 +203,7 @@ const Product = () => {
                 </div>
                 <p className="font-body text-sm text-muted-foreground mt-2">Cancel anytime</p>
                 <ul className="space-y-3 text-left mt-6 mb-8">
-                  {["AI health guidance & alerts", "$25 on-demand vet video calls", "30-day trend analytics", "Vet-shareable health reports"].map((item) => (
+                  {["AI health guidance & alerts", "30-day trend analytics", "Vet-shareable health reports", "Track multiple dogs"].map((item) => (
                     <li key={item} className="flex items-center gap-3 font-body text-sm text-muted-foreground"><Check size={14} className="text-primary shrink-0" />{item}</li>
                   ))}
                 </ul>
