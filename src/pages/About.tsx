@@ -107,8 +107,8 @@ const About = () => {
               <div className="absolute top-4 left-0 right-0 h-0.5 bg-border" />
               {[
                 { label: "Waitlist Open", active: true, current: false },
-                { label: "Prototype", active: true, current: true },
-                { label: "Beta Testing", active: false, current: false },
+                { label: "Prototype", active: true, current: false },
+                { label: "Beta Testing", active: true, current: true },
                 { label: "Kickstarter", active: false, current: false },
                 { label: "Delivery", active: false, current: false },
               ].map((step) => (
@@ -126,8 +126,8 @@ const About = () => {
               <div className="absolute top-0 bottom-0 left-[15px] w-0.5 bg-border" />
               {[
                 { label: "Waitlist Open", active: true, current: false },
-                { label: "Prototype", active: true, current: true },
-                { label: "Beta Testing", active: false, current: false },
+                { label: "Prototype", active: true, current: false },
+                { label: "Beta Testing", active: true, current: true },
                 { label: "Kickstarter", active: false, current: false },
                 { label: "Delivery", active: false, current: false },
               ].map((step) => (

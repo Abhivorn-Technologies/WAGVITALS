@@ -77,12 +77,11 @@ const Product = () => {
           </ScrollAnimate>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Heart, label: "Heart Rate", spec: "MAX30101", desc: "Catch irregular rhythms before they become emergencies — continuous optical pulse monitoring." },
-              { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "Fever alerts before your dog shows visible signs — non-contact infrared, industry-first at consumer price.", badge: "Industry First" },
-              { icon: Activity, label: "Activity", spec: "NRF52840", desc: "See when behavior changes — rest, play, stress, sleep patterns via 6-axis accelerometer." },
+              { icon: Heart, label: "Heart Rate", spec: "MAX30101", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts." },
+              { icon: Thermometer, label: "Temperature", spec: "MLX90614", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", badge: "Industry First" },
+              { icon: Activity, label: "Activity & Rest", spec: "NRF52840", desc: "Know the difference between a lazy afternoon and something wrong. Track rest, play, stress, and sleep patterns over time." },
               { icon: Cpu, label: "Housing", spec: "Zirconia Ceramic", desc: "Medical-grade ceramic — hypoallergenic, durable, and premium feel." },
-              { icon: Brain, label: "AI Guidance", spec: "Vitals+ App", desc: "Plain-English alerts and recommendations based on your dog's live biometric trends." },
-              { icon: Video, label: "$25 Vet Calls", spec: "On-demand", desc: "20-min video call with a licensed vet who sees your dog's actual vitals in real time." },
+              { icon: Brain, label: "AI Health Guidance", spec: "Vitals+ App", desc: "Your dog's vitals, translated. Plain-English alerts tell you what the numbers mean and when to call your vet — before it becomes an emergency." },
             ].map((s, i) => (
               <ScrollAnimate key={s.label} animation="fade-in-up" delay={i * 0.1}>
                 <div className="bg-muted rounded-2xl p-6 border border-border hover:-translate-y-1 transition-transform duration-300 h-full">
