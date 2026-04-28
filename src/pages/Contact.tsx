@@ -7,19 +7,55 @@ import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/l
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [sendError, setSendError] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [loading, setLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
+  const validateName = (name: string) => {
+    const regex = /^[a-zA-Z\s]*$/;
+    if (!regex.test(name)) {
+      setNameError("Name should only contain alphabets");
+      return false;
+    }
+    setNameError("");
+    return true;
+  };
+
+  const validateEmail = (email: string) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email)) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!formRef.current) return;
+    const formData = new FormData(formRef.current);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    
+    const isNameValid = validateName(name);
+    const isEmailValid = validateEmail(email);
+
+    if (!isNameValid || !isEmailValid) {
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
+    setSendError("");
     try {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
       setSubmitted(true);
-    } catch (err) {
+    } catch (err: any) {
       console.error("EmailJS error:", err);
-      setSubmitted(true);
+      const msg = err?.text || err?.message || "Something went wrong. Please try again or email us directly.";
+      setSendError(msg);
     } finally {
       setLoading(false);
     }
@@ -59,11 +95,31 @@ const Contact = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
                         <label className="font-body text-sm text-muted-foreground mb-2 block">Name</label>
-                        <input type="text" name="user_name" required className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Your name" />
+                        <input 
+                          type="text" 
+                          name="name" 
+                          required 
+                          onChange={(e) => validateName(e.target.value)}
+                          className={`w-full bg-card border ${nameError ? 'border-destructive' : 'border-border'} rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors`} 
+                          placeholder="Your name" 
+                        />
+                        {nameError && (
+                          <p className="text-destructive text-xs mt-1 font-body animate-fade-in">{nameError}</p>
+                        )}
                       </div>
                       <div>
                         <label className="font-body text-sm text-muted-foreground mb-2 block">Email</label>
-                        <input type="email" name="user_email" required className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" placeholder="your@email.com" />
+                        <input 
+                          type="email" 
+                          name="email" 
+                          required 
+                          onChange={(e) => validateEmail(e.target.value)}
+                          className={`w-full bg-card border ${emailError ? 'border-destructive' : 'border-border'} rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors`} 
+                          placeholder="your@email.com" 
+                        />
+                        {emailError && (
+                          <p className="text-destructive text-xs mt-1 font-body animate-fade-in">{emailError}</p>
+                        )}
                       </div>
                     </div>
                     <div>
@@ -74,6 +130,11 @@ const Contact = () => {
                       <label className="font-body text-sm text-muted-foreground mb-2 block">Message</label>
                       <textarea name="message" required rows={5} className="w-full bg-card border border-border rounded-lg px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Tell us what's on your mind..." />
                     </div>
+                    {sendError && (
+                      <p className="font-body text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded-lg px-4 py-3">
+                        ⚠️ {sendError}
+                      </p>
+                    )}
                     <button type="submit" disabled={loading} className="bg-gradient-gold text-primary-foreground font-body font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 disabled:opacity-50">
                       {loading ? "Sending..." : "Send Message"} <Send size={16} />
                     </button>

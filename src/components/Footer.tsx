@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Heart, Mail, MapPin, Linkedin, Instagram } from "lucide-react";
 import wagvitalsLogo from "@/assets/wagvitals-logo.png";
 
 const Footer = () => {
+  const location = useLocation();
+  
   return (
     <footer className="bg-card border-t border-border">
       {/* Roadmap Timeline */}
+      {location.pathname !== '/about' && (
       <div className="border-b border-border py-10">
         <div className="container mx-auto px-4 lg:px-8">
           <h3 className="font-display text-xl font-bold text-center mb-8 italic">
@@ -33,6 +36,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      )}
 
       <div className="container mx-auto px-4 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">

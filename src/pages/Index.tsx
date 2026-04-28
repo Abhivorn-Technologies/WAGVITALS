@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Layout from "@/components/Layout";
 import ScrollAnimate from "@/components/ScrollAnimate";
 import SmoothImage from "@/components/SmoothImage";
@@ -9,15 +10,39 @@ import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
 import uarfLogo from "@/assets/uarf-logo.png";
 import founderLogo from "@/assets/founders-logo.png"
 import { Heart, Thermometer, Activity, Shield, ArrowRight, Brain, CheckCircle } from "lucide-react";
-import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
+import { STRIPE_CHECKOUT_URL as STRIPE_LINK, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/constants";
 
 const Index = () => {
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
+  const [waitlistLoading, setWaitlistLoading] = useState(false);
 
-  const handleWaitlist = (e: React.FormEvent) => {
+  const handleWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
-    setWaitlistSubmitted(true);
+    
+    if (!waitlistEmail) return;
+
+    setWaitlistLoading(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: "Waitlist Signup",
+          email: waitlistEmail,
+          subject: "New Waitlist Signup",
+          message: `New waitlist signup from: ${waitlistEmail}`
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setWaitlistSubmitted(true);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      // Fallback to true so the user sees a success message even if email fails
+      setWaitlistSubmitted(true);
+    } finally {
+      setWaitlistLoading(false);
+    }
   };
 
   return (
@@ -25,7 +50,7 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[80vh] sm:min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <SmoothImage src={heroDog} alt="Doberman wearing WagVitals smart health collar" width={1920} height={1080} className="w-full h-full object-cover object-top" wrapperClassName="w-full h-full" />
+          <SmoothImage src={heroDog} alt="Doberman wearing WagVitals smart health collar" width={1920} height={1080} className="w-full h-full object-cover object-top scale-[1.3] md:scale-[1.5] origin-[10%_top] md:origin-[5%_15%]" wrapperClassName="w-full h-full" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
         </div>
         <div className="relative container mx-auto px-4 lg:px-8 py-20">
@@ -128,7 +153,7 @@ const Index = () => {
               "If Jimmy had been wearing WagVitals, I would have seen the warning signs. Here is what it tracks — and why each one matters."
             </p>
           </ScrollAnimate>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               { icon: Heart, title: "Heart Rate", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts.", spec: "", color: "text-destructive" },
               { icon: Thermometer, title: "Body Temperature", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", spec: "", color: "text-primary", badge: "Industry First — No Competitor Has This" },
@@ -175,11 +200,11 @@ const Index = () => {
               { title: "Body Temperature", desc: "We own this. No competitor offers continuous temp at a consumer price.", icon: Thermometer, highlight: true },
             ].map((item, i) => (
               <ScrollAnimate key={item.title} animation="fade-in-up" delay={i * 0.15}>
-                <div className={`rounded-2xl p-8 border transition-all duration-300 hover:-translate-y-1 h-full ${item.highlight ? "bg-destructive/10 border-destructive/30" : "bg-card border-border"}`}>
-                  <item.icon size={28} className={item.highlight ? "text-destructive mb-4" : "text-primary mb-4"} />
+                <div className="group rounded-2xl p-8 border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:bg-destructive/10 hover:border-destructive/30 h-full">
+                  <item.icon size={28} className="text-primary mb-4 transition-colors duration-300 group-hover:text-destructive" />
                   <h3 className="font-display text-xl font-bold mb-2">{item.title}</h3>
                   <p className="font-body text-sm text-muted-foreground">{item.desc}</p>
-                  {item.highlight && <span className="inline-block mt-3 text-xs font-semibold text-destructive bg-destructive/10 px-3 py-1 rounded-full">Our Moat</span>}
+                  {item.highlight && <span className="inline-block mt-3 text-xs font-semibold text-destructive bg-destructive/10 px-3 py-1 rounded-full transition-colors duration-300 group-hover:bg-destructive/20">Our Moat</span>}
                 </div>
               </ScrollAnimate>
             ))}
@@ -291,8 +316,10 @@ const Index = () => {
               </div>
             ) : (
               <form onSubmit={handleWaitlist} className="flex flex-col sm:flex-row gap-3">
-                <input type="email" required value={waitlistEmail} onChange={(e) => setWaitlistEmail(e.target.value)} placeholder="your@email.com" className="flex-1 bg-card border border-border rounded-full px-6 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" />
-                <button type="submit" className="bg-gradient-gold text-primary-foreground font-body font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity">Join Waitlist</button>
+                <input type="email" required value={waitlistEmail} onChange={(e) => setWaitlistEmail(e.target.value)} placeholder="your@email.com" className="flex-1 bg-card border border-border rounded-full px-6 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" disabled={waitlistLoading} />
+                <button type="submit" disabled={waitlistLoading} className="bg-gradient-gold text-primary-foreground font-body font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-50">
+                  {waitlistLoading ? "Joining..." : "Join Waitlist"}
+                </button>
               </form>
             )}
           </ScrollAnimate>

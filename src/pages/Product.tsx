@@ -4,6 +4,7 @@ import SmoothImage from "@/components/SmoothImage";
 import heroDog from "@/assets/hero-dog.jpeg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
+import dogGoldenFounding from "@/assets/goldenretriever_founding.jpg";
 import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
@@ -13,8 +14,8 @@ const Product = () => {
       {/* Hero */}
       <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch">
+            <div className="flex flex-col justify-center">
               <ScrollAnimate animation="fade-in">
                 <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">The WagVitals Collar</p>
               </ScrollAnimate>
@@ -35,8 +36,8 @@ const Product = () => {
                 <p className="mt-3 font-body text-xs text-accent">✓ Fully refundable — $49 deposit + $200 at delivery = $249 total</p>
               </ScrollAnimate>
             </div>
-            <ScrollAnimate animation="scale-in" delay={0.2}>
-              <SmoothImage src={heroDog} alt="Doberman wearing WagVitals smart health collar with precision module" width={1024} height={1024} className="rounded-2xl w-full max-w-lg mx-auto glow-gold" />
+            <ScrollAnimate animation="scale-in" delay={0.2} className="h-full">
+              <SmoothImage src={heroDog} alt="Doberman wearing WagVitals smart health collar with precision module" width={1024} height={1024} className="rounded-2xl w-full h-full object-cover min-h-[350px] lg:min-h-0 glow-gold" wrapperClassName="w-full h-full" />
             </ScrollAnimate>
           </div>
         </div>
@@ -107,7 +108,7 @@ const Product = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimate animation="slide-in-left">
-              <SmoothImage src={dogGolden} alt="Golden Retriever wearing WagVitals collar" loading="lazy" width={800} height={1024} className="rounded-2xl w-full max-w-sm mx-auto glow-gold" />
+              <SmoothImage src={dogGoldenFounding} alt="Golden Retriever wearing WagVitals collar" loading="lazy" width={800} height={1024} className="rounded-2xl w-full max-w-sm mx-auto glow-gold" />
             </ScrollAnimate>
             <ScrollAnimate animation="slide-in-right" delay={0.1}>
               <div>
