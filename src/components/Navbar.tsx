@@ -26,8 +26,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        <Link to="/" onClick={() => handleLinkClick("/")} className="flex items-center gap-2">
-          <img src={wagvitalsLogo} alt="WagVitals" className="h-10" />
+        <Link to="/" onClick={() => handleLinkClick("/")} className="flex flex-col items-start">
+          <img src={wagvitalsLogo} alt="WagVitals" className="h-8" />
+          <span className="font-body text-[7px] tracking-[0.25em] text-muted-foreground mt-1 uppercase italic leading-none">
+            The Pet Operating System
+          </span>
         </Link>
 
         {/* Desktop */}

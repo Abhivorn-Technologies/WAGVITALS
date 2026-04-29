@@ -18,14 +18,22 @@ const About = () => {
             <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Our Story</p>
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.1}>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold italic mb-6">
-              When pets speak<br />through <span className="text-gradient-gold">data.</span>
+            <h1 className="font-display text-4xl sm:text-6xl font-bold italic mb-8 max-w-4xl mx-auto">
+              WagVitals was built because of <span className="text-gradient-gold">Jimmy.</span>
             </h1>
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.2}>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
-              WagVitals was born from loss — and built with the conviction that no pet owner should ever be blindsided again.
-            </p>
+            <div className="font-body text-lg text-muted-foreground max-w-4xl mx-auto space-y-6 text-left sm:text-center">
+              <p>
+                WagVitals was built because of Jimmy. Jimmy was a stray dog who died from an undetected illness with no warning. No data. No alerts. No time to act. That loss is why WagVitals exists.
+              </p>
+              <p>
+                WagVitals is the Pet Operating System. It starts with a smart collar that monitors your dog's body temperature, heart rate, and activity continuously — 24 hours a day, 7 days a week. The data goes into an AI that learns what normal looks like for your specific dog and sends you an alert when something changes before you would ever notice it yourself.
+              </p>
+              <p>
+                That is just the beginning. WagVitals is building toward personalized diet plans based on your dog's health data, genetic testing that tells you what diseases your dog is at risk for, and personalized medication recommendations based on their unique DNA. Every layer makes the previous layers more powerful. The collar collects the data. The AI makes it meaningful. The genetics make it personal.
+              </p>
+            </div>
           </ScrollAnimate>
         </div>
       </section>

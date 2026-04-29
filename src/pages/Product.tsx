@@ -5,7 +5,7 @@ import heroDog from "@/assets/hero-dog.jpeg";
 import dogPitbull from "@/assets/dog-pitbull.jpg";
 import dogGolden from "@/assets/dog-golden.jpg";
 import dogGoldenFounding from "@/assets/goldenretriever_founding.jpg";
-import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain } from "lucide-react";
+import { Heart, Thermometer, Activity, Cpu, ArrowRight, Check, X, Brain, Stethoscope, Dna } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK } from "@/lib/constants";
 
 const Product = () => {
@@ -73,24 +73,30 @@ const Product = () => {
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollAnimate animation="fade-in-up">
-            <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3 text-center">Technical Specifications</p>
-            <h2 className="font-display text-4xl font-bold italic mb-16 text-center">Precision <span className="text-gradient-gold">engineering.</span></h2>
+            <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3 text-center">Technical Features</p>
+            <h2 className="font-display text-4xl font-bold italic mb-16 text-center">Precision Features & <span className="text-gradient-gold">Engineering.</span></h2>
           </ScrollAnimate>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {[
-              { icon: Heart, label: "Heart Rate", spec: "", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts." },
-              { icon: Thermometer, label: "Temperature", spec: "", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", badge: "Industry First" },
-              { icon: Activity, label: "Activity & Rest", spec: "", desc: "Know the difference between a lazy afternoon and something wrong. Track rest, play, stress, and sleep patterns over time." },
-              { icon: Cpu, label: "Housing", spec: "Zirconia Ceramic", desc: "Medical-grade ceramic — hypoallergenic, durable, and premium feel." },
-              { icon: Brain, label: "AI Health Guidance", spec: "Vitals+ App", desc: "Your dog's vitals, translated. Plain-English alerts tell you what the numbers mean and when to call your vet — before it becomes an emergency." },
+              { icon: Thermometer, label: "Continuous Temperature Monitoring", spec: "", desc: "The only consumer collar that monitors your dog's body temperature continuously. Temperature is the first thing that changes when something is wrong — hours before your dog shows any symptoms.", badge: "Industry First" },
+              { icon: Heart, label: "Heart Rate and Activity Tracking", spec: "", desc: "Monitors resting heart rate and activity patterns 24 hours a day. Changes in activity rhythm are one of the earliest signs that something is wrong." },
+              { icon: Brain, label: "AI Health Prediction", spec: "Vitals+ App", desc: "Our AI learns your dog's personal health baseline over 30 days. It sends you an alert when vital signs deviate from their normal — 24 to 48 hours before symptoms appear. Not population averages. Your dog's individual normal." },
+              { icon: Stethoscope, label: "Veterinary Intelligence Portal", spec: "Vet-Link feature", desc: "Your vet gets access to 30 days of continuous health data before every appointment. Pre-visit AI summaries. Post-surgical monitoring from home. Better data means better care." },
+              { icon: Dna, label: "Genetic Integration — Coming 2027", spec: "Platform Roadmap", desc: "A one-time DNA test combined with continuous health data will enable personalized diet plans and medication recommendations based on your dog's unique genetic profile. Precision medicine for your pet." },
             ].map((s, i) => (
-              <ScrollAnimate key={s.label} animation="fade-in-up" delay={i * 0.1}>
-                <div className="bg-muted rounded-2xl p-6 border border-border hover:-translate-y-1 transition-transform duration-300 h-full">
-                  <s.icon size={24} className="text-primary mb-4" />
-                  {s.badge && <span className="inline-block bg-destructive/10 text-destructive text-xs font-semibold px-3 py-1 rounded-full mb-2">{s.badge}</span>}
-                  <h3 className="font-display text-xl font-bold mb-1">{s.label}</h3>
-                  <p className="font-body text-xs text-primary font-semibold mb-2">{s.spec}</p>
-                  <p className="font-body text-xs text-muted-foreground">{s.desc}</p>
+              <ScrollAnimate key={s.label} animation="fade-in-up" delay={i * 0.1} className="w-full md:w-[calc(50%-24px)] lg:w-[calc(33.333%-24px)]">
+                <div className="bg-muted rounded-2xl p-5 border border-border hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
+                  <div className="min-h-[22px] mb-2">
+                    {s.badge ? (
+                      <span className="inline-block bg-destructive/10 text-destructive text-[9px] font-semibold px-2 py-0.5 rounded-full">{s.badge}</span>
+                    ) : null}
+                  </div>
+                  <s.icon size={24} className="text-primary mb-3" />
+                  <h3 className="font-display text-lg lg:text-xl font-bold mb-1.5 leading-none whitespace-nowrap">
+                    {s.label}
+                  </h3>
+                  <p className="font-body text-[11px] text-primary font-semibold mb-1.5">{s.spec}</p>
+                  <p className="font-body text-[11px] text-muted-foreground leading-tight">{s.desc}</p>
                 </div>
               </ScrollAnimate>
             ))}

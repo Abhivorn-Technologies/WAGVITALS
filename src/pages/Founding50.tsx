@@ -19,12 +19,12 @@ const Founding50 = () => {
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.1}>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold italic mb-6">
-              The Founding <span className="text-gradient-gold">50.</span>
+              Join the <span className="text-gradient-gold">Founding 50.</span>
             </h1>
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.2}>
             <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-              Only 50 founding member spots available. Be among the first to experience WagVitals and shape the future of pet health monitoring.
+              Be one of the first 50 people to bring the Pet Operating System home. Your $49 deposit secures your place in the platform that will predict your dog's health problems before they happen. Ships early 2027. Full price $249. Founding members pay $49 today.
             </p>
           </ScrollAnimate>
 

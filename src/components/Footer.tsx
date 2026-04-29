@@ -42,12 +42,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="flex flex-col items-start">
               <img src={wagvitalsLogo} alt="WagVitals" className="h-10" />
+              <span className="font-body text-[7px] tracking-[0.25em] text-muted-foreground mt-1 uppercase italic leading-none">
+                The Pet Operating System
+              </span>
             </Link>
-            <p className="mt-3 text-muted-foreground font-body text-sm max-w-md italic">
-              "When pets speak through data."
-            </p>
             <div className="flex items-center gap-4 mt-6">
               <a href="https://www.linkedin.com/in/bhuvaneshwarreddy-kosna-644807190/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm">LinkedIn</a>
               <a href="https://www.instagram.com/wagvitals?igsh=MWl4cGJ4NmtlbjcyZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm">Instagram</a>
@@ -98,7 +98,7 @@ const Footer = () => {
         {/* Disclaimer */}
         <div className="mt-12 pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground font-body leading-relaxed max-w-4xl">
-            WagVitals is a pet health wearable in active development, targeting Early 2027 delivery. This is a reservation for a founding member pre-order, not a final purchase. Device specifications may evolve prior to delivery. WagVitals tracks biometric trends and activity — it is not a medical device and does not diagnose or treat health conditions. All $49 deposits are fully refundable.
+            WagVitals is the Pet Operating System. Continuous health monitoring. AI health prediction. Genetic personalization. Built for Jimmy.
           </p>
           <div className="flex flex-wrap items-center gap-1 mt-6 text-xs text-muted-foreground">
             <span>© 2026 WagVitals. Made with</span>

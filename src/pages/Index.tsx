@@ -9,7 +9,7 @@ import dogGolden from "@/assets/dog-golden.jpg";
 import globalClevelandLogo from "@/assets/global-cleveland-logo.png";
 import uarfLogo from "@/assets/uarf-logo.png";
 import founderLogo from "@/assets/founders-logo.png"
-import { Heart, Thermometer, Activity, Shield, ArrowRight, Brain, CheckCircle } from "lucide-react";
+import { Heart, Thermometer, Activity, Shield, ArrowRight, Brain, CheckCircle, Stethoscope, Dna } from "lucide-react";
 import { STRIPE_CHECKOUT_URL as STRIPE_LINK, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/constants";
 
 const Index = () => {
@@ -54,22 +54,14 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
         </div>
         <div className="relative container mx-auto px-4 lg:px-8 py-20">
-          <ScrollAnimate animation="fade-in" delay={0}>
-            <p className="font-body text-sm tracking-[0.3em] uppercase text-primary mb-4">Smart Health Collar for Dogs</p>
-          </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.1}>
             <h1 className="font-display text-4xl sm:text-7xl lg:text-8xl font-bold leading-[0.9] mb-6">
-              Know<br /><span className="text-gradient-gold italic">Before.</span>
+              Know Before<br /><span className="text-gradient-gold italic">It Is Too Late.</span>
             </h1>
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.2}>
-            <p className="font-body text-lg sm:text-xl text-muted-foreground max-w-lg mb-4">
-              Continuous vitals. AI guidance. $25 vet calls. So you never miss what your dog is trying to tell you.
-            </p>
-          </ScrollAnimate>
-          <ScrollAnimate animation="fade-in" delay={0.25}>
-            <p className="font-body text-sm text-muted-foreground mb-8">
-              200+ dog owners on the waitlist
+            <p className="font-body text-lg sm:text-xl text-muted-foreground max-w-2xl mb-8">
+              WagVitals is the first platform that continuously monitors your dog's health, uses AI to predict abnormalities before symptoms appear, and will personalize their nutrition and medication based on their unique DNA. The collar is where it starts. The platform is where it goes.
             </p>
           </ScrollAnimate>
           <ScrollAnimate animation="fade-in-up" delay={0.3}>
@@ -141,6 +133,34 @@ const Index = () => {
         </div>
       </section>
 
+
+      {/* Our Story Section */}
+      <section className="py-24 bg-card/30">
+        <div className="container mx-auto px-4 lg:px-8 text-center">
+          <ScrollAnimate animation="fade-in">
+            <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Our Story</p>
+          </ScrollAnimate>
+          <ScrollAnimate animation="fade-in-up" delay={0.1}>
+            <h2 className="font-display text-4xl sm:text-6xl font-bold italic mb-8 max-w-4xl mx-auto">
+              WagVitals was built because of <span className="text-gradient-gold">Jimmy.</span>
+            </h2>
+          </ScrollAnimate>
+          <ScrollAnimate animation="fade-in-up" delay={0.2}>
+            <div className="font-body text-lg text-muted-foreground max-w-4xl mx-auto space-y-6 text-left sm:text-center">
+              <p>
+                WagVitals was built because of Jimmy. Jimmy was a stray dog who died from an undetected illness with no warning. No data. No alerts. No time to act. That loss is why WagVitals exists.
+              </p>
+              <p>
+                WagVitals is the Pet Operating System. It starts with a smart collar that monitors your dog's body temperature, heart rate, and activity continuously — 24 hours a day, 7 days a week. The data goes into an AI that learns what normal looks like for your specific dog and sends you an alert when something changes before you would ever notice it yourself.
+              </p>
+              <p>
+                That is just the beginning. WagVitals is building toward personalized diet plans based on your dog's health data, genetic testing that tells you what diseases your dog is at risk for, and personalized medication recommendations based on their unique DNA. Every layer makes the previous layers more powerful. The collar collects the data. The AI makes it meaningful. The genetics make it personal.
+              </p>
+            </div>
+          </ScrollAnimate>
+        </div>
+      </section>
+
       {/* Emotional Bridge + Features */}
       <section className="py-24">
         <div className="container mx-auto px-4 lg:px-8 text-center">
@@ -153,22 +173,27 @@ const Index = () => {
               "If Jimmy had been wearing WagVitals, I would have seen the warning signs. Here is what it tracks — and why each one matters."
             </p>
           </ScrollAnimate>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {[
-              { icon: Heart, title: "Heart Rate", desc: "Catch irregular rhythms before they become emergencies. Continuous monitoring — not just a snapshot — so you know the moment something shifts.", spec: "", color: "text-destructive" },
-              { icon: Thermometer, title: "Body Temperature", desc: "The only consumer collar that tracks this. Fever shows up in data hours before your dog acts sick — giving you time to act, not react.", spec: "", color: "text-primary", badge: "Industry First — No Competitor Has This" },
-              { icon: Activity, title: "Activity & Rest", desc: "Know the difference between a lazy afternoon and something wrong. Track rest, play, stress, and sleep patterns over time.", spec: "", color: "text-accent" },
-              { icon: Brain, title: "AI Health Guidance", desc: "Your dog's vitals, translated. Plain-English alerts tell you what the numbers mean and when to call your vet — before it becomes an emergency.", spec: "Vitals+ App feature", color: "text-primary" },
+              { icon: Thermometer, title: "Continuous Temperature Monitoring", desc: "The only consumer collar that monitors your dog's body temperature continuously. Temperature is the first thing that changes when something is wrong — hours before your dog shows any symptoms.", spec: "", color: "text-primary", badge: "Industry First — No Competitor Has This" },
+              { icon: Heart, title: "Heart Rate and Activity Tracking", desc: "Monitors resting heart rate and activity patterns 24 hours a day. Changes in activity rhythm are one of the earliest signs that something is wrong.", spec: "", color: "text-destructive" },
+              { icon: Brain, title: "AI Health Prediction", desc: "Our AI learns your dog's personal health baseline over 30 days. It sends you an alert when vital signs deviate from their normal — 24 to 48 hours before symptoms appear. Not population averages. Your dog's individual normal.", spec: "Vitals+ App feature", color: "text-primary" },
+              { icon: Stethoscope, title: "Veterinary Intelligence Portal", desc: "Your vet gets access to 30 days of continuous health data before every appointment. Pre-visit AI summaries. Post-surgical monitoring from home. Better data means better care.", spec: "Vet-Link feature", color: "text-accent" },
+              { icon: Dna, title: "Genetic Integration — Coming 2027", desc: "A one-time DNA test combined with continuous health data will enable personalized diet plans and medication recommendations based on your dog's unique genetic profile. Precision medicine for your pet.", spec: "Platform Roadmap", color: "text-primary" },
             ].map((feature, i) => (
-              <ScrollAnimate key={feature.title} animation="fade-in-up" delay={i * 0.1}>
-                <div className="bg-card border border-border rounded-2xl p-8 text-left hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full">
-                  <feature.icon size={32} className={`${feature.color} mb-5`} />
-                  {feature.badge && (
-                    <span className="inline-block bg-destructive/10 text-destructive text-xs font-semibold px-3 py-1 rounded-full mb-3">{feature.badge}</span>
-                  )}
-                  <h3 className="font-display text-2xl font-bold mb-3">{feature.title}</h3>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed mb-2">{feature.desc}</p>
-                  <p className="font-body text-xs text-primary">{feature.spec}</p>
+              <ScrollAnimate key={feature.title} animation="fade-in-up" delay={i * 0.1} className="w-full md:w-[calc(50%-32px)] lg:w-[calc(33.333%-32px)]">
+                <div className="bg-card border border-border rounded-2xl p-5 text-left hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full flex flex-col">
+                  <div className="min-h-[22px] mb-2">
+                    {feature.badge ? (
+                      <span className="inline-block bg-destructive/10 text-destructive text-[9px] font-semibold px-2 py-0.5 rounded-full">{feature.badge}</span>
+                    ) : null}
+                  </div>
+                  <feature.icon size={24} className={`${feature.color} mb-3`} />
+                  <h3 className="font-display text-lg font-bold mb-2 leading-none whitespace-nowrap">
+                    {feature.title}
+                  </h3>
+                  <p className="font-body text-xs text-muted-foreground leading-relaxed mb-2">{feature.desc}</p>
+                  <p className="font-body text-[10px] text-primary">{feature.spec}</p>
                 </div>
               </ScrollAnimate>
             ))}
@@ -178,6 +203,77 @@ const Index = () => {
               Reserve Your Founding Spot — $49 <ArrowRight size={18} />
             </a>
           </ScrollAnimate>
+        </div>
+      </section>
+
+
+
+
+
+      {/* Platform Section */}
+      <section className="py-24 bg-background overflow-hidden border-t border-border/50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <ScrollAnimate animation="fade-in-up">
+              <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">The Future of Pet Health</p>
+              <h2 className="font-display text-4xl sm:text-5xl font-bold mb-6 italic">
+                The Platform — <span className="text-gradient-gold">Built in Layers.</span>
+              </h2>
+              <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+                WagVitals is not a product. It is a platform that grows with your dog over their entire life. Each layer builds on the one before it.
+              </p>
+            </ScrollAnimate>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-8">
+            {[
+              {
+                layer: "Layer 1",
+                title: "Layer 1 — Sense — Available Now",
+                desc: "The smart collar monitors continuous body temperature, heart rate, and activity. Live data on your phone. Real-time alerts when something changes.",
+                status: "active"
+              },
+              {
+                layer: "Layer 2",
+                title: "Layer 2 — Predict — Coming August 2026",
+                desc: "AI learns your dog's personal health fingerprint over 30 days. Predicts health problems 24 to 48 hours before symptoms appear. Not a guess. Your dog's individual baseline, learned over time.",
+                status: "upcoming"
+              },
+              {
+                layer: "Layer 3",
+                title: "Layer 3 — Personalize — Coming 2027",
+                desc: "A one-time DNA test combined with health data creates a complete picture of your dog's biology. Personalized diet plans. Medication recommendations. Precision medicine for your pet.",
+                status: "future"
+              }
+            ].map((item, i) => (
+              <ScrollAnimate key={item.layer} animation="fade-in-up" delay={i * 0.15}>
+                <div className={`relative p-8 rounded-3xl border transition-all duration-500 hover:-translate-y-1 ${item.status === 'active' ? 'bg-card border-primary/20 glow-gold shadow-xl' : 'bg-muted/30 border-border'}`}>
+                  <div className="flex flex-col md:flex-row gap-6 md:items-center">
+                    <div className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center font-display text-3xl font-bold ${item.status === 'active' ? 'bg-gradient-gold text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                      {i + 1}
+                    </div>
+                    <div className="flex-grow">
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <h3 className="font-display text-2xl font-bold italic">{item.title}</h3>
+                        {item.status === 'active' && (
+                          <div className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                            <span className="flex h-2 w-2 relative">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            Live
+                          </div>
+                        )}
+                      </div>
+                      <p className="font-body text-muted-foreground leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollAnimate>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -251,10 +347,10 @@ const Index = () => {
           <ScrollAnimate animation="fade-in-up">
             <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Limited to 50 Members</p>
             <h2 className="font-display text-4xl sm:text-5xl font-bold mb-6 italic">
-              The Founding <span className="text-gradient-gold">50.</span>
+              Join the <span className="text-gradient-gold">Founding 50.</span>
             </h2>
             <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
-              Be one of the first 50 people to own WagVitals. Lock in founding pricing, get direct access to the team, and shape the future of pet health monitoring.
+              Be one of the first 50 people to bring the Pet Operating System home. Your $49 deposit secures your place in the platform that will predict your dog's health problems before they happen. Ships early 2027. Full price $249. Founding members pay $49 today.
             </p>
           </ScrollAnimate>
 
